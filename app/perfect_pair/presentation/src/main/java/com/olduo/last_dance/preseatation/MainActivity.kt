@@ -1,4 +1,4 @@
-package com.olduo.last_dance
+package com.olduo.last_dance.preseatation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
