@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.PerfectPair" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-         <item name="colorPrimary">@color/green</item>
+         <item name="colorPrimary">@color/bluelagoo_mid</item>
     </style>
 
     <style name="Theme.PerfectPair" parent="Base.Theme.PerfectPair" />

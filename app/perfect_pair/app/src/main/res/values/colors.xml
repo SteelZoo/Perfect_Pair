@@ -2,5 +2,7 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="green">#B0E8B7</color>
+    <color name="bluelagoo_deep">#0052d4</color>
+    <color name="bluelagoo_mid">#4364f7</color>
+    <color name="bluelagoo_light">#6fb1fc</color>
 </resources>
