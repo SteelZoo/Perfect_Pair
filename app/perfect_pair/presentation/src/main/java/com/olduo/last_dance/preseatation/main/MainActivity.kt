@@ -7,8 +7,8 @@ import com.olduo.last_dance.preseatation.R
 
 /**
  * TODO
- * GroupFragment
- * GameRankFragment
+ * GroupFragment ui
+ * GameRankFragment ui
  * GameFragment
  * CrateGroupFragment
  * JoinGroupFragment
