@@ -29,5 +29,9 @@ class SignInFragment : BaseFragment<FragmentSignInBinding>(FragmentSignInBinding
         binding.tvSigninSignup.setOnClickListener {
             this.findNavController().navigate(R.id.action_signInFragment_to_signUpFragment)
         }
+
+        binding.btnSigninLogin.setOnClickListener {
+            this.findNavController().navigate(R.id.action_signInFragment_to_main_nav_graph)
+        }
     }
 }

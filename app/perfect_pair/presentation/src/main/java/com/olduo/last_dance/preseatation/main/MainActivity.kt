@@ -4,6 +4,16 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.olduo.last_dance.preseatation.R
 
+
+/**
+ * TODO
+ * GroupFragment
+ * GameRankFragment
+ * GameFragment
+ * CrateGroupFragment
+ * JoinGroupFragment
+ * CrateGameFragment
+ */
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
