@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
-    <application
-        android:theme="@style/Theme.PerfectPair">
+
+    <application android:theme="@style/Theme.PerfectPair">
+        <activity
+            android:name=".login.LoginActivity"
+            android:exported="false" />
         <activity
             android:name=".main.MainActivity"
             android:exported="true">
@@ -12,4 +15,5 @@
             </intent-filter>
         </activity>
     </application>
+
 </manifest>
