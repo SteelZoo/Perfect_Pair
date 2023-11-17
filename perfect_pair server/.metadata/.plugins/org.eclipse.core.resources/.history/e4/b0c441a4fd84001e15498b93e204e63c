@@ -1,0 +1,62 @@
+package com.olduo.last_dance.model.service;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.olduo.last_dance.controller.rest.UserRestController;
+import com.olduo.last_dance.model.dao.UserDao;
+import com.olduo.last_dance.model.dto.User;
+
+@Service
+public class UserServiceImpl implements UserService {
+
+	private static UserServiceImpl instance = new UserServiceImpl();
+
+	private static final Logger logger = LoggerFactory.getLogger(UserRestController.class);
+	private UserServiceImpl() {
+
+	}
+
+	@Autowired
+	private UserDao userDao;
+
+	@Override
+	public void join(User user) {
+		logger.info(user.toString());
+		
+		userDao.insert(user);
+	}
+
+	@Override
+	public User login(String user_id, String pass) {
+		User user = userDao.select(user_id);
+		if (user != null && user.getPass().equals(pass)) {
+			return user;
+		} else {
+			return null;
+		}
+	}
+
+	@Override
+	public boolean isUsedId(String user_id) {
+		return userDao.select(user_id) != null;
+	}
+
+	@Override
+	public void leave(String user_id) {
+        userDao.delete(user_id);
+
+	}
+
+	@Override
+	public User selectUser(String user_id) {
+		User user = userDao.select(user_id);
+		if (user != null) {
+			return user;
+		} else {
+			return null;
+		}
+	}
+}

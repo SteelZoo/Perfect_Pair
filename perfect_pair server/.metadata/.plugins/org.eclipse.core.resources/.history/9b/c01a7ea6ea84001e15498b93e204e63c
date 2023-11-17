@@ -1,0 +1,6 @@
+package com.olduo.last_dance.model.service;
+
+
+public interface UserService {
+
+}
