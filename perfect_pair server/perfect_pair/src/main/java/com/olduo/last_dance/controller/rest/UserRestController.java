@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -62,7 +63,38 @@ public class UserRestController {
         }
         return selected;
     }
-
+    
+    @PutMapping("/update")
+    @ApiOperation(value = "사용자 정보를 수정한다.성공하면 true를 리턴한다.", response = Boolean.class)
+    public Boolean update(HttpServletRequest request, @RequestBody User user) {
+    	String idInCookie = "";
+        Cookie [] cookies = request.getCookies();
+        if(cookies != null) {
+  		  for (Cookie cookie : cookies) {
+  			try {
+  			  if("loginId".equals(cookie.getName())){
+  				  idInCookie = URLDecoder.decode(cookie.getValue(), "utf-8");
+  				  System.out.println("value : "+URLDecoder.decode(cookie.getValue(), "utf-8"));
+  			  }
+  			} catch (UnsupportedEncodingException e) {
+  				// TODO Auto-generated catch block
+  				e.printStackTrace();
+  			}
+  		  }
+        }
+        
+        user.setUserId(idInCookie);
+        
+        if(!user.getUserId().equals(idInCookie)) {
+    		  logger.info("different cookie value : inputValue : {}, inCookie:{}", user.getUserId(), idInCookie);
+    	  }else {
+    		  logger.info("valid cookie value : inputValue : {}, inCookie:{}", user.getUserId(), idInCookie);
+    	  }
+    	
+    	uService.updateUser(user);
+    	
+    	return true;
+    }
 
     @GetMapping("/info")
     @ApiOperation(value = "사용자의 정보를 반환한다.",
