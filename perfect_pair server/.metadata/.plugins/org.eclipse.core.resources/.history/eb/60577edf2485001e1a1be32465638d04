@@ -1,0 +1,42 @@
+package com.olduo.last_dance.model.dto;
+
+public class GroupUser {
+	private Integer id;
+	private Integer uId;
+	private Integer gId;
+	
+	public GroupUser(Integer id, Integer uId, Integer gId) {
+		this.id = id;
+		this.uId = uId;
+		this.gId = gId;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public Integer getuId() {
+		return uId;
+	}
+
+	public void setuId(Integer uId) {
+		this.uId = uId;
+	}
+
+	public Integer getgId() {
+		return gId;
+	}
+
+	public void setgId(Integer gId) {
+		this.gId = gId;
+	}
+
+	@Override
+	public String toString() {
+		return "GroupUser [id=" + id + ", uId=" + uId + ", gId=" + gId + "]";
+	}
+}

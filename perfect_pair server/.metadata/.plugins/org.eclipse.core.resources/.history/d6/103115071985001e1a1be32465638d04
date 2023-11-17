@@ -1,0 +1,24 @@
+package com.olduo.last_dance.model.service;
+
+import com.olduo.last_dance.model.dto.Group;
+
+public interface GroupService {
+	/**
+     * Group를 등록한다.
+     * @param group
+     */
+    void addComment(Group group);
+    
+    /**
+     * id에 해당하는 Group을 반환한다.
+     * @param id
+     * @return
+     */
+    Group selectGroup(Integer id);
+    
+    /**
+     * id에 해당하는 Group을 삭제한다.
+     * @param id
+     */
+    void removeGroup(Integer id);
+}

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- name space는 BookRepo의 fully qualified name으로 설정한다. -->
+<mapper namespace="com.olduo.last_dance.model.dao.GroupDao">
+	<insert id="insert" parameterType="Group">
+		INSERT INTO t_group (id,
+		title, description, code)
+		VALUES (#{id}, #{title}, #{description},
+		#{code})
+	</insert>
+
+	<delete id="delete" parameterType="int">
+		DELETE FROM t_group
+		WHERE id =
+		#{id}
+	</delete>
+
+	<select id="getGroupByUser" parameterType="String" resultType="Group">
+		SELECT group.*
+		FROM t_user user
+		JOIN group_user groupUser ON user.userId = groupUser.u_id
+		JOIN t_group group ON groupUser.g_id = group.id
+		WHERE user.userId = #{userId};
+	</select>
+
+</mapper>
