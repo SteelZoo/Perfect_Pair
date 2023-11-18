@@ -16,4 +16,10 @@
         <item name="android:textSize">24dp</item>
         <item name="android:textStyle">bold</item>
     </style>
+
+    <style name="Theme.PerfectPair.QuestionEditText" parent="Theme.PerfectPair">
+        <item name="android:inputType">text</item>
+        <item name="android:maxLength">20</item>
+        <item name="android:maxLines">1</item>
+    </style>
 </resources>

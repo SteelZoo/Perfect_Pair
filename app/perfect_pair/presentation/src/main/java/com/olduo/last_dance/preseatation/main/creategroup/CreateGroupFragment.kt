@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.olduo.last_dance.preseatation.R
 import com.olduo.last_dance.preseatation.databinding.FragmentCreateGroupBinding
 import com.ssafy.template.board.config.BaseFragment
@@ -20,7 +21,17 @@ class CreateGroupFragment : BaseFragment<FragmentCreateGroupBinding>(FragmentCre
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_create_group, container, false)
+        return super.onCreateView(inflater, container, savedInstanceState)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setListener()
+    }
+
+    private fun setListener(){
+        binding.btnCreateGroup.setOnClickListener {
+            this.findNavController().popBackStack()
+        }
+    }
 }

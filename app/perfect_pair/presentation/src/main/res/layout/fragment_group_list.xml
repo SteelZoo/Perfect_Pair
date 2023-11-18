@@ -21,7 +21,7 @@
         tools:listitem="@layout/item_group_list" />
 
     <Button
-        android:id="@+id/btn_createGroup"
+        android:id="@+id/btn_joinGroup"
         style="@style/Theme.PerfectPair.NormalButton"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -29,17 +29,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/btn_joinGroup" />
+        app:layout_constraintStart_toEndOf="@id/btn_createGroup" />
 
     <Button
-        android:id="@+id/btn_joinGroup"
+        android:id="@+id/btn_createGroup"
         style="@style/Theme.PerfectPair.NormalButton"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:text="생성"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="2"
-        app:layout_constraintEnd_toStartOf="@id/btn_createGroup"
+        app:layout_constraintEnd_toStartOf="@id/btn_joinGroup"
         app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

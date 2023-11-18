@@ -1,6 +1,7 @@
 package com.olduo.last_dance.preseatation.main.grouplist
 
 import android.content.Context
+import android.content.DialogInterface.OnClickListener
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -13,7 +14,8 @@ import com.olduo.last_dance.preseatation.databinding.ItemGroupListBinding
 import com.olduo.last_dance.preseatation.dto.Group
 
 class GroupListAdapter(
-    val list: List<Group>
+    val list: List<Group>,
+    private val clickListener: (Group)->Unit
 ): RecyclerView.Adapter<GroupListAdapter.GroupListViewHolder>(){
     private var context: Context? = null
 
@@ -27,11 +29,11 @@ class GroupListAdapter(
     }
 
     override fun onBindViewHolder(holder: GroupListViewHolder, position: Int) {
-        holder.bind(list[position],position,context)
+        holder.bind(list[position],position,context,clickListener)
     }
 
     class GroupListViewHolder(val binding: ItemGroupListBinding): RecyclerView.ViewHolder(binding.root){
-        fun bind(group: Group,position: Int,context: Context?){
+        fun bind(group: Group,position: Int,context: Context?,clickListener: (Group) -> Unit){
             with(binding){
                 tvName.text = group.name
                 tvDescription.text = group.description
@@ -41,6 +43,9 @@ class GroupListAdapter(
                         1->{binding.layoutBackground.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(context,R.color.bluelagoo_mid))}
                         2->{binding.layoutBackground.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(context,R.color.bluelagoo_light))}
                     }
+                }
+                root.setOnClickListener {
+                    clickListener(group)
                 }
             }
         }

@@ -12,7 +12,7 @@ import com.olduo.last_dance.preseatation.R
  * GameFragment
  * CrateGroupFragment ui
  * JoinGroupFragment ui
- * CrateGameFragment
+ * CrateGameFragment ui
  */
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

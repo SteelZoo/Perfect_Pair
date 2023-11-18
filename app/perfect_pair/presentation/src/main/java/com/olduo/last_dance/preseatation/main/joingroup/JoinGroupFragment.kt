@@ -20,7 +20,7 @@ class JoinGroupFragment : BaseFragment<FragmentJoinGroupBinding>(FragmentJoinGro
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_join_group, container, false)
+        return super.onCreateView(inflater, container, savedInstanceState)
     }
 
 }
