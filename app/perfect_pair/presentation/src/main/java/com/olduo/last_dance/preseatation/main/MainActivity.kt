@@ -10,8 +10,8 @@ import com.olduo.last_dance.preseatation.R
  * GroupFragment ui
  * GameRankFragment ui
  * GameFragment
- * CrateGroupFragment
- * JoinGroupFragment
+ * CrateGroupFragment ui
+ * JoinGroupFragment ui
  * CrateGameFragment
  */
 class MainActivity : AppCompatActivity() {
