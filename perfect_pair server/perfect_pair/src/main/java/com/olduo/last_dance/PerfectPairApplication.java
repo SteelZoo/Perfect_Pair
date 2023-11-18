@@ -41,7 +41,6 @@ public class PerfectPairApplication {
                 .apiInfo(apiInfo)
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.olduo.last_dance.controller.rest"))
-//              .paths(PathSelectors.ant("/book/**"))
                 .build();
         System.out.println(docket);
         return docket;

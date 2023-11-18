@@ -20,4 +20,24 @@
 <entry path="C:\SSAFY\zulu8.70.0.23-ca-jdk8.0.372-win_x64\jre\lib\endorsed"/>
 </endorsedDirs>
 </libraryInfo>
+<libraryInfo home="C:\Users\duggi\Desktop\SSAFY\JDK\zulu8.66.0.15-ca-jdk8.0.352-win_x64" version="1.8.0_352">
+<bootpath>
+<entry path="C:\Users\duggi\Desktop\SSAFY\JDK\zulu8.66.0.15-ca-jdk8.0.352-win_x64\jre\lib\resources.jar"/>
+<entry path="C:\Users\duggi\Desktop\SSAFY\JDK\zulu8.66.0.15-ca-jdk8.0.352-win_x64\jre\lib\rt.jar"/>
+<entry path="C:\Users\duggi\Desktop\SSAFY\JDK\zulu8.66.0.15-ca-jdk8.0.352-win_x64\jre\lib\sunrsasign.jar"/>
+<entry path="C:\Users\duggi\Desktop\SSAFY\JDK\zulu8.66.0.15-ca-jdk8.0.352-win_x64\jre\lib\jsse.jar"/>
+<entry path="C:\Users\duggi\Desktop\SSAFY\JDK\zulu8.66.0.15-ca-jdk8.0.352-win_x64\jre\lib\jce.jar"/>
+<entry path="C:\Users\duggi\Desktop\SSAFY\JDK\zulu8.66.0.15-ca-jdk8.0.352-win_x64\jre\lib\charsets.jar"/>
+<entry path="C:\Users\duggi\Desktop\SSAFY\JDK\zulu8.66.0.15-ca-jdk8.0.352-win_x64\jre\lib\jfr.jar"/>
+<entry path="C:\Users\duggi\Desktop\SSAFY\JDK\zulu8.66.0.15-ca-jdk8.0.352-win_x64\jre\lib\cat.jar"/>
+<entry path="C:\Users\duggi\Desktop\SSAFY\JDK\zulu8.66.0.15-ca-jdk8.0.352-win_x64\jre\classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="C:\Users\duggi\Desktop\SSAFY\JDK\zulu8.66.0.15-ca-jdk8.0.352-win_x64\jre\lib\ext"/>
+<entry path="C:\WINDOWS\Sun\Java\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="C:\Users\duggi\Desktop\SSAFY\JDK\zulu8.66.0.15-ca-jdk8.0.352-win_x64\jre\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
 </libraryInfos>
