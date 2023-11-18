@@ -1,5 +1,0 @@
-package com.olduo.last_dance.model.dao;
-
-public interface GroupDao {
-
-}

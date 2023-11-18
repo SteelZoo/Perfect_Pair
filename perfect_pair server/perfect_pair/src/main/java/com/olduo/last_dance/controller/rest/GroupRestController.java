@@ -1,5 +1,6 @@
 package com.olduo.last_dance.controller.rest;
 
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,17 +28,25 @@ public class GroupRestController {
 	@Autowired
     GroupService gService;
 	
-	@PostMapping
+	@PostMapping("/{userId}")
     @Transactional
-    @ApiOperation(value="그룹 객체를 추가한다. 성공하면 true를 리턴한다. ", response = Boolean.class)
-    public Boolean insert(@RequestBody Group group, @PathVariable String userId) {
+    @ApiOperation(value="그룹 객체를 추가한다. 성공하면 true를 리턴한다.", response = Boolean.class)
+    public Boolean insert(@RequestBody Group group, @PathVariable String userId) throws NoSuchAlgorithmException {
         gService.addGroup(group, userId);
+        return true;
+    }
+	
+	@PostMapping("/{code}/{userId}")
+    @Transactional
+    @ApiOperation(value="그룹에 사용자를 등록한다. 성공하면 true를 리턴한다.", response = Boolean.class)
+    public Boolean insertUserToGroup(@PathVariable String code, @PathVariable String userId) {
+        gService.insertUserToGroup(code, userId);
         return true;
     }
 	
 	@DeleteMapping("/{id}")
     @Transactional
-    @ApiOperation(value="{id}에 해당하는 그룹을 삭제한다. 성공하면 true를 리턴한다. ", response = Boolean.class)
+    @ApiOperation(value="{id}에 해당하는 그룹을 삭제한다. 성공하면 true를 리턴한다.", response = Boolean.class)
     public Boolean delete(@PathVariable Integer id) {
         gService.removeGroup(id);
         return true;

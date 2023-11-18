@@ -9,5 +9,7 @@ public interface GroupDao {
 	
 	int delete(int id);
 	
-	List<Group> selectByUser(String userId);
+	List<Group> getGroupByUser(String userId);
+	
+	int insertUserToGroup(String code, String userId);
 }

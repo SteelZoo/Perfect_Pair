@@ -1,7 +1,0 @@
-package com.olduo.last_dance.model.dao;
-
-import com.olduo.last_dance.model.dto.GroupUser;
-
-public class GroupUserDao {
-	int insert(GroupUser groupUser);
-}

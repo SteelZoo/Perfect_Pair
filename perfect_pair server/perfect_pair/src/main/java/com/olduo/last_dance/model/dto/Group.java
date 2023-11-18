@@ -1,29 +1,37 @@
 package com.olduo.last_dance.model.dto;
 
-import java.util.List;
-
 public class Group {
 	private Integer id;
+	private String creator;
 	private String title;
 	private String description;
 	private String code;
-	
-	private List<GroupUser> grouplist;
 
-	public Group(Integer id, String title, String description, String code) {
+	public Group(Integer id, String creator, String title, String description, String code) {
 		this.id = id;
+		this.creator = creator;
 		this.title = title;
 		this.description = description;
 		this.code = code;
 	}
 
-	public Group(String title, String description, String code) {
+	public Group(String creator, String title, String description, String code) {
 		this.title = title;
+		this.creator = creator;
 		this.description = description;
 		this.code = code;
 	}
 
-	public Group() {}
+	public Group() {
+	}
+
+	public String getCreator() {
+		return creator;
+	}
+
+	public void setCreator(String creator) {
+		this.creator = creator;
+	}
 
 	public Integer getId() {
 		return id;
@@ -57,16 +65,9 @@ public class Group {
 		this.code = code;
 	}
 
-	public List<GroupUser> getGrouplist() {
-		return grouplist;
-	}
-
-	public void setGrouplist(List<GroupUser> grouplist) {
-		this.grouplist = grouplist;
-	}
-
 	@Override
 	public String toString() {
-		return "Group [id=" + id + ", title=" + title + ", description=" + description + ", code=" + code + "]";
+		return "Group [id=" + id + ", creator=" + creator + ", title=" + title + ", description=" + description
+				+ ", code=" + code + "]";
 	}
 }

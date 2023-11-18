@@ -10,6 +10,11 @@ public class GroupUser {
 		this.uId = uId;
 		this.gId = gId;
 	}
+	
+	public GroupUser(String uId, Integer gId) {
+		this.uId = uId;
+		this.gId = gId;
+	}
 
 	public Integer getId() {
 		return id;
