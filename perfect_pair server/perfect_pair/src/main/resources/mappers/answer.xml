@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- name space는 BookRepo의 fully qualified name으로 설정한다. -->
+<mapper namespace="com.olduo.last_dance.model.dao.AnswerDao">
+	<insert id="insert" parameterType="Answer">
+		INSERT INTO t_answer (id, qId,
+		userId, answer)
+		VALUES
+		(#{id}, #{qId}, #{userId}, #{answer})
+	</insert>
+
+	<update id="update" parameterType="Answer">
+		UPDATE t_answer
+		SET
+		answer =
+		#{answer}
+		WHERE userId = #{userId} and qId = #{qId}
+	</update>
+
+	<select id="selectAnswer" parameterType="map" resultType="map">
+		SELECT
+		t_answer.id AS answerId,
+		t_answer.qId,
+		t_answer.userId,
+		t_user.name AS userName,
+		t_answer.answer
+		FROM
+		t_answer
+		JOIN
+		t_user ON t_user.userId = t_answer.userId
+		WHERE
+		t_answer.userId = #{userId} AND t_answer.qId = #{qId};
+	</select>
+
+	<select id="getAnswerByQuiz" parameterType="int" resultType="Answer">
+		SELECT *
+		FROM t_answer
+		WHERE qId = #{qId}
+	</select>
+
+</mapper>

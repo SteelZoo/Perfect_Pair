@@ -3,16 +3,19 @@ package com.olduo.last_dance.model.dto;
 public class Quiz {
 	Integer id;
 	Integer gId;
+	String title;
 	String question;
-	
-	public Quiz (Integer id, Integer gId, String question) {
+
+	public Quiz (Integer id, Integer gId, String title, String question) {
 		this.id = id;
 		this.gId = gId;
+		this.title = title;
 		this.question = question;
 	}
 
-	public Quiz (Integer gId, String question) {
+	public Quiz (Integer gId, String title, String question) {
 		this.gId = gId;
+		this.title = title;
 		this.question = question;
 	}
 
@@ -30,6 +33,14 @@ public class Quiz {
 
 	public void setgId(Integer gId) {
 		this.gId = gId;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 	public String getQuestion() {
