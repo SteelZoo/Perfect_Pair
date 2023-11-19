@@ -7,9 +7,10 @@
 	<insert id="insert" parameterType="Quiz">
 		INSERT INTO t_quiz
 		(gId,
+		title,
 		question)
 		VALUES
-		(#{gId}, #{question})
+		(#{gId}, #{title}, #{question})
 	</insert>
 
 	<delete id="delete" parameterType="int">
