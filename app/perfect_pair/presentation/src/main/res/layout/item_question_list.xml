@@ -3,54 +3,37 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <ImageButton
-        android:id="@+id/ib_delete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/baseline_cancel_24"
-        android:backgroundTint="@color/bluelagoo_light"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tv_firstQuestion"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_firstQuestion"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toStartOf="@id/ib_delete"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/bg_btn_normal"
+        android:backgroundTint="@color/bluelagoo_light"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@id/btn_secondQuestion"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="문제1문제1문제1문제1문제1문제1문제1문제1문제" />
+        tools:text="첫번째 문항입니다." />
 
-    <TextView
-        android:id="@+id/tv_vs"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="VS"
-        android:layout_marginVertical="4dp"
-        app:layout_constraintBottom_toTopOf="@id/tv_secondQuestion"
-        app:layout_constraintEnd_toStartOf="@id/ib_delete"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_firstQuestion" />
-
-    <TextView
-        android:id="@+id/tv_secondQuestion"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_secondQuestion"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:gravity="right"
-        app:layout_constraintEnd_toStartOf="@id/ib_delete"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_vs"
-        tools:text="문제1문제1문제1문제1문제1문제1문제1문제1문제" />
-
-    <com.google.android.material.divider.MaterialDivider
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/bg_btn_normal"
+        android:backgroundTint="@color/bluelagoo_light"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_secondQuestion" />
+        app:layout_constraintTop_toBottomOf="@id/btn_firstQuestion"
+        tools:text="두번째 문항입니다." />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

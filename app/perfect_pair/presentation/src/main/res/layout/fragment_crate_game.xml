@@ -29,7 +29,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:itemCount="4"
-                tools:listitem="@layout/item_question_list" />
+                tools:listitem="@layout/item_create_question_list" />
 
             <EditText
                 android:id="@+id/et_firstQuestion"
