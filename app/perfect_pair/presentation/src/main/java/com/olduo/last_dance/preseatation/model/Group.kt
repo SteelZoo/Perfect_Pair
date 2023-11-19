@@ -1,4 +1,4 @@
-package com.olduo.last_dance.preseatation.dto
+package com.olduo.last_dance.preseatation.model
 
 data class Group(
     val id: Int,

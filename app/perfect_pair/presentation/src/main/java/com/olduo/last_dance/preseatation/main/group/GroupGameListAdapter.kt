@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.olduo.last_dance.preseatation.databinding.ItemGameListBinding
-import com.olduo.last_dance.preseatation.dto.GameSet
+import com.olduo.last_dance.preseatation.model.GameSet
 
 class GroupGameListAdapter(
     val gameSetList: List<GameSet>,

@@ -1,14 +1,13 @@
 package com.olduo.last_dance.preseatation.main.grouplist
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.olduo.last_dance.preseatation.R
 import com.olduo.last_dance.preseatation.databinding.FragmentGroupListBinding
-import com.olduo.last_dance.preseatation.dto.Group
+import com.olduo.last_dance.preseatation.model.Group
 import com.ssafy.template.board.config.BaseFragment
 
 class GroupListFragment : BaseFragment<FragmentGroupListBinding>(FragmentGroupListBinding::bind,R.layout.fragment_group_list) {

@@ -9,8 +9,8 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.olduo.last_dance.preseatation.R
 import com.olduo.last_dance.preseatation.databinding.ItemQuestionListBinding
-import com.olduo.last_dance.preseatation.dto.GameSet
-import com.olduo.last_dance.preseatation.dto.Question
+import com.olduo.last_dance.preseatation.model.GameSet
+import com.olduo.last_dance.preseatation.model.Question
 
 class QuestionListAdapter(
     val gameSet: GameSet,

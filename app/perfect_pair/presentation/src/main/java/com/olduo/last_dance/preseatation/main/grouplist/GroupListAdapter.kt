@@ -1,17 +1,14 @@
 package com.olduo.last_dance.preseatation.main.grouplist
 
 import android.content.Context
-import android.content.DialogInterface.OnClickListener
 import android.content.res.ColorStateList
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.olduo.last_dance.preseatation.R
 import com.olduo.last_dance.preseatation.databinding.ItemGroupListBinding
-import com.olduo.last_dance.preseatation.dto.Group
+import com.olduo.last_dance.preseatation.model.Group
 
 class GroupListAdapter(
     val list: List<Group>,

@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.olduo.last_dance.preseatation.R
 import com.olduo.last_dance.preseatation.databinding.FragmentCrateGameBinding
-import com.olduo.last_dance.preseatation.dto.Question
+import com.olduo.last_dance.preseatation.model.Question
 import com.ssafy.template.board.config.BaseFragment
 
 class CreateGameFragment : BaseFragment<FragmentCrateGameBinding>(FragmentCrateGameBinding::bind,R.layout.fragment_crate_game) {

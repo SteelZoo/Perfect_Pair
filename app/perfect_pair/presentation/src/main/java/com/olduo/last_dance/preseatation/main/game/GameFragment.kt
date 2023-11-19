@@ -6,8 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import com.olduo.last_dance.preseatation.R
 import com.olduo.last_dance.preseatation.databinding.FragmentGameBinding
-import com.olduo.last_dance.preseatation.dto.GameSet
-import com.olduo.last_dance.preseatation.dto.Question
+import com.olduo.last_dance.preseatation.model.GameSet
+import com.olduo.last_dance.preseatation.model.Question
 import com.ssafy.template.board.config.BaseFragment
 
 class GameFragment :

@@ -6,8 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.olduo.last_dance.preseatation.databinding.ItemCreateQuestionListBinding
-import com.olduo.last_dance.preseatation.databinding.ItemQuestionListBinding
-import com.olduo.last_dance.preseatation.dto.Question
+import com.olduo.last_dance.preseatation.model.Question
 
 class CreateGameListAdapter: ListAdapter<Question,CreateGameListAdapter.CreateGameListViewHolder>(diffUtil){
 
