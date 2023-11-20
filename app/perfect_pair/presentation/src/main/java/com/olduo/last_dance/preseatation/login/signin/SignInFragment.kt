@@ -12,11 +12,14 @@ import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.olduo.last_dance.preseatation.R
 import com.olduo.last_dance.preseatation.databinding.FragmentSignInBinding
+import com.olduo.last_dance.preseatation.main.MainViewModel
 import com.ssafy.template.board.config.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class SignInFragment : BaseFragment<FragmentSignInBinding>(FragmentSignInBinding::bind,R.layout.fragment_sign_in) {
+//    @Inject
     private val signInViewModel: SignInViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,9 +54,16 @@ class SignInFragment : BaseFragment<FragmentSignInBinding>(FragmentSignInBinding
     }
 
     private fun setObserve(){
-        signInViewModel.loginedUser.observe(viewLifecycleOwner){
-            Snackbar.make(binding.root,it.toString(),Snackbar.LENGTH_SHORT).show()
-            this.findNavController().navigate(R.id.action_signInFragment_to_main_nav_graph)
+        signInViewModel.isLoginSuccess.observe(viewLifecycleOwner){
+            it.getContentIfNotHandled()?.let {
+                if (it){
+                    val user = signInViewModel.loginedUser.value!!
+                    showCustomToast("로그인에 성공했습니다\n${user}")
+                    findNavController().navigate(R.id.action_signInFragment_to_main_nav_graph)
+                } else {
+                    showCustomToast("로그인에 실패했습니다")
+                }
+            }
         }
     }
 }
