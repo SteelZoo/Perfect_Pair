@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingVertical="4dp">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="5dp">
+
+        <LinearLayout
+            android:id="@+id/layout_background"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_item_group_list"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/tv_game_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="?attr/colorOnPrimary"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                tools:text="밸런스게임1 입니다." />
+
+            <TextView
+                android:id="@+id/tv_game_firstQustion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="?attr/colorOnPrimary"
+                tools:text="짜장 vs 짬뽕" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

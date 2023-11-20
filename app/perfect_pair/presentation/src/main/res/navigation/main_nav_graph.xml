@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/groupListFragment">
+
+    <fragment
+        android:id="@+id/groupListFragment"
+        android:name="com.olduo.last_dance.preseatation.main.grouplist.GroupListFragment"
+        android:label="fragment_group_list"
+        tools:layout="@layout/fragment_group_list" >
+        <action
+            android:id="@+id/action_groupListFragment_to_groupFragment"
+            app:destination="@id/groupFragment" />
+        <action
+            android:id="@+id/action_groupListFragment_to_joinGroupFragment"
+            app:destination="@id/joinGroupFragment" />
+        <action
+            android:id="@+id/action_groupListFragment_to_createGroupFragment"
+            app:destination="@id/createGroupFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/groupFragment"
+        android:name="com.olduo.last_dance.preseatation.main.group.GroupFragment"
+        android:label="fragment_group"
+        tools:layout="@layout/fragment_group" >
+        <action
+            android:id="@+id/action_groupFragment_to_crateGameFragment"
+            app:destination="@id/crateGameFragment" />
+        <action
+            android:id="@+id/action_groupFragment_to_gameRankFragment"
+            app:destination="@id/gameRankFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/crateGameFragment"
+        android:name="com.olduo.last_dance.preseatation.main.creategame.CreateGameFragment"
+        android:label="fragment_crate_game"
+        tools:layout="@layout/fragment_crate_game" />
+    <fragment
+        android:id="@+id/gameFragment"
+        android:name="com.olduo.last_dance.preseatation.main.game.GameFragment"
+        android:label="fragment_game"
+        tools:layout="@layout/fragment_game" />
+    <fragment
+        android:id="@+id/gameRankFragment"
+        android:name="com.olduo.last_dance.preseatation.main.gamerank.GameRankFragment"
+        android:label="fragment_game_rank"
+        tools:layout="@layout/fragment_game_rank" >
+        <action
+            android:id="@+id/action_gameRankFragment_to_gameFragment"
+            app:destination="@id/gameFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/joinGroupFragment"
+        android:name="com.olduo.last_dance.preseatation.main.joingroup.JoinGroupFragment"
+        android:label="JoinGroupFragment" />
+    <fragment
+        android:id="@+id/createGroupFragment"
+        android:name="com.olduo.last_dance.preseatation.main.creategroup.CreateGroupFragment"
+        android:label="CreateGroupFragment" />
+</navigation>
