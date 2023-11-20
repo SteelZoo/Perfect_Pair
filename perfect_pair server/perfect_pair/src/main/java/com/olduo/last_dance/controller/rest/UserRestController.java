@@ -38,7 +38,7 @@ public class UserRestController {
 	UserService uService;
 
 	@PostMapping
-	@ApiOperation(value = "사용자 정보를 추가한다. 성공하면 true를 리턴한다. ", response = Boolean.class)
+	@ApiOperation(value = "user 정보를 추가한다. 성공하면 true를 리턴한다.", response = Boolean.class)
 	public Boolean insert(@RequestBody User user) {
 		logger.info(user.toString());
 		uService.join(user);
@@ -58,7 +58,7 @@ public class UserRestController {
 	}
 	
 	@PostMapping("/info")
-	@ApiOperation(value = "사용자의 정보를 반환한다.", notes = "아래 User객체에서 id, pass 두 개의 정보만 json으로 넘기면 정상동작한다.", response = Map.class)
+	@ApiOperation(value = "user 정보를 반환한다.", notes = "아래 User객체에서 id, pass 두 개의 정보만 json으로 넘기면 정상동작한다.", response = Map.class)
 	public Map<String, Object> getInfo(@RequestBody User user) {
 		User selected = uService.login(user.getUserId(), user.getPass());
 		if (selected == null) {
@@ -116,7 +116,7 @@ public class UserRestController {
 	}
 
 	@PutMapping("/update")
-	@ApiOperation(value = "사용자 정보를 수정한다.성공하면 true를 리턴한다.", response = Boolean.class)
+	@ApiOperation(value = "user 정보를 수정한다. 성공하면 true를 리턴한다.", response = Boolean.class)
 	public Boolean update(HttpServletRequest request, @RequestBody User user) {
 		String idInCookie = "";
 		Cookie[] cookies = request.getCookies();

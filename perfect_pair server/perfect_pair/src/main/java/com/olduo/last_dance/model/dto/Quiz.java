@@ -5,6 +5,10 @@ public class Quiz {
 	Integer gId;
 	String title;
 	String question;
+	
+	public Quiz(){
+		
+	}
 
 	public Quiz (Integer id, Integer gId, String title, String question) {
 		this.id = id;

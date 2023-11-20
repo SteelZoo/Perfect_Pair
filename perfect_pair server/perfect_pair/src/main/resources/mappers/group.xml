@@ -14,13 +14,10 @@
 		(#{id}, #{creator}, #{title}, #{description}, #{code})
 	</insert>
 
-	<insert id="insertUserToGroup" parameterType="String">
-		INSERT INTO
-		t_group_user (uId, gId)
-		SELECT t_user.userId, t_group.id
-		FROM t_user
-		JOIN t_group ON t_group.code = #{code}
-		WHERE t_user.userId = #{userId};
+	<insert id="insertUserToGroup" parameterType="map">
+		INSERT INTO t_group_user (uId, gId)
+		VALUES
+		(#{uId}, #{gId})
 	</insert>
 
 	<delete id="delete" parameterType="int">
@@ -37,6 +34,18 @@
 		JOIN t_group g
 		ON gu.gId = g.id
 		WHERE u.userId = #{userId};
+	</select>
+	
+	<select id="selectGroupByCode" parameterType="String" resultType="Group">
+		SELECT t_group.*
+		FROM t_group
+		WHERE code = #{code};
+	</select>
+	
+	<select id = "isJoin" parameterType="map" resultType="int">
+		SELECT t_group_user.id
+		FROM t_group_user
+		WHERE uId = #{uId} AND gId = #{gId}
 	</select>
 
 </mapper>
