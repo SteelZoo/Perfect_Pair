@@ -15,8 +15,7 @@
 
 	<delete id="delete" parameterType="int">
 		DELETE FROM t_quiz
-		WHERE id =
-		#{id}
+		WHERE id = #{id}
 	</delete>
 
 	<select id="getQuizByGroup" parameterType="int"
