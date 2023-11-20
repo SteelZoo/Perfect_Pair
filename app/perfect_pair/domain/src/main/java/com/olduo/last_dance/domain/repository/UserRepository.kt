@@ -7,7 +7,7 @@ interface UserRepository {
 
     suspend fun signIn(id: String,pass: String): UserDomain?
 
-    suspend fun isDupId(id: String): Boolean
+    suspend fun isDupId(id: String): Result<Boolean>
 
     suspend fun autoLogin(id: String): UserDomain?
 }

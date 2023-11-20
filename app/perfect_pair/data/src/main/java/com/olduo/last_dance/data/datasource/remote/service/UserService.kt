@@ -13,22 +13,22 @@ interface UserService {
     /**
      * 실패하면 에러 반환
      */
-    @POST("/user")
+    @POST("user")
     suspend fun signUp(@Body userDto: UserDto): Response<Boolean>
 
     /**
      * 실패하면 dto의 변수가 null
      */
-    @GET("/user/info")
+    @GET("user/info")
     suspend fun autoSignIn(@Query("userId") userId: String): Response<UserDto>
 
     /**
      * 실패하면 반환 json이 없음
      */
-    @POST("/user/login")
+    @POST("user/login")
     suspend fun signIn(@Body userDto: UserDto): Response<UserDto>
 
-    @GET("/user/isUsed")
+    @GET("user/isUsed")
     suspend fun checkDup(@Query("userId") userId: String): Response<Boolean>
 
 }

@@ -1,87 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingHorizontal="30dp"
-    tools:context=".login.signin.SignInFragment">
+<layout>
 
-    <TextView
-        android:id="@+id/tv_logo"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:gravity="center"
-        android:text="Perfect Pair"
-        android:textColor="?attr/colorPrimary"
-        android:textSize="34sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@id/et_signin_id"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <data>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/et_signin_id"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:hint="ID"
-        app:layout_constraintBottom_toTopOf="@id/et_signup_pass"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed">
+        <variable
+            name="viewmodel"
+            type="com.olduo.last_dance.preseatation.login.signin.SignInViewModel" />
+    </data>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </com.google.android.material.textfield.TextInputLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingHorizontal="30dp"
+        tools:context=".login.signin.SignInFragment">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/et_signup_pass"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:hint="PASS"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/et_signin_id"
-        app:passwordToggleEnabled="true">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/tv_logo"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:inputType="textPassword" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginTop="40dp"
+            android:gravity="center"
+            android:text="Perfect Pair"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/et_signin_id"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tv_signin_signup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/signup"
-        app:layout_constraintBaseline_toBaselineOf="@id/cb_autoSignin"
-        app:layout_constraintEnd_toEndOf="@id/et_signup_pass" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/et_signin_id"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:hint="ID"
+            app:layout_constraintBottom_toTopOf="@id/et_signup_pass"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed">
 
-    <CheckBox
-        android:id="@+id/cb_autoSignin"
-        android:layout_width="100dp"
-        android:layout_height="26dp"
-        android:layout_marginTop="10dp"
-        android:text="자동로그인"
-        app:layout_constraintStart_toStartOf="@id/et_signup_pass"
-        app:layout_constraintTop_toBottomOf="@id/et_signup_pass" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:maxLines="1"
+                android:text="@={viewmodel.id}" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_signin_login"
-        style="@style/Theme.PerfectPair.NormalButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="로그인"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/et_signup_pass" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/et_signup_pass"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="PASS"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_signin_id"
+            app:passwordToggleEnabled="true">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionNext"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:text="@={viewmodel.pass}" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/tv_signin_signup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/signup"
+            app:layout_constraintBaseline_toBaselineOf="@id/cb_autoSignin"
+            app:layout_constraintEnd_toEndOf="@id/et_signup_pass" />
+
+        <CheckBox
+            android:id="@+id/cb_autoSignin"
+            android:layout_width="wrap_content"
+            android:layout_height="26dp"
+            android:layout_marginTop="10dp"
+            android:text="자동로그인"
+            app:layout_constraintStart_toStartOf="@id/et_signup_pass"
+            app:layout_constraintTop_toBottomOf="@id/et_signup_pass" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_signin_login"
+            style="@style/Theme.PerfectPair.NormalButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="로그인"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_signup_pass" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
