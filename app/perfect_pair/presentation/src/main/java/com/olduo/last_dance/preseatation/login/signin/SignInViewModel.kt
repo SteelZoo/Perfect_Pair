@@ -11,7 +11,6 @@ import com.olduo.last_dance.preseatation.mapper.toPresentation
 import com.olduo.last_dance.preseatation.model.User
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
-import java.security.PrivateKey
 import javax.inject.Inject
 
 @HiltViewModel
@@ -55,6 +54,7 @@ class SignInViewModel @Inject constructor(
 
     private fun setLoginState(user: User?){
         if (user != null){
+            sharedPreferencesUtil.userId = user.id
             _loginedUser.postValue(user!!)
             _isLoginSuccess.postValue(Event(true))
         } else {

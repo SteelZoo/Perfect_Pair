@@ -1,6 +1,5 @@
 package com.olduo.last_dance.preseatation.login.signup
 
-import android.provider.CalendarContract.EventsEntity
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -8,7 +7,6 @@ import androidx.lifecycle.viewModelScope
 import com.olduo.last_dance.domain.usecase.user.SignUpUsecase
 import com.olduo.last_dance.preseatation.Event
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 

@@ -4,13 +4,18 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.snackbar.Snackbar
 import com.olduo.last_dance.preseatation.R
 import com.olduo.last_dance.preseatation.databinding.FragmentGroupListBinding
-import com.olduo.last_dance.preseatation.model.Group
 import com.ssafy.template.board.config.BaseFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class GroupListFragment : BaseFragment<FragmentGroupListBinding>(FragmentGroupListBinding::bind,R.layout.fragment_group_list) {
+
+    private val groupListViewModel: GroupListViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,11 +32,11 @@ class GroupListFragment : BaseFragment<FragmentGroupListBinding>(FragmentGroupLi
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        groupListViewModel.getMyGroup()
         setListener()
+        setObserve()
 
-        binding.rvGroupList.adapter = GroupListAdapter(groupList){
-            this.findNavController().navigate(R.id.action_groupListFragment_to_groupFragment)
-        }
+
     }
 
     private fun setListener(){
@@ -46,109 +51,20 @@ class GroupListFragment : BaseFragment<FragmentGroupListBinding>(FragmentGroupLi
         }
     }
 
+    private fun setObserve(){
+        groupListViewModel.groupList.observe(viewLifecycleOwner){result->
+            if (result.isSuccess){
+                binding.rvGroupList.adapter = GroupListAdapter(result.getOrDefault(listOf())){
+                    this.findNavController().navigate(R.id.action_groupListFragment_to_groupFragment)
+                }
+            } else {
+                showDefaultSnackbar("그룹불러오기에 실패했습니다.")
+            }
+        }
+    }
 
-    private val groupList = listOf(
-        Group(
-            1,"id 01",
-            "구미 6반 마지막 관통",
-            "최고의 짝을 정하자!",
-            "1"
-        ),
-        Group(
-            1,"id 01",
-            "구미 6반 마지막 관통",
-            "최고의 짝을 정하자!",
-            "1"
-        ),
-        Group(
-            1,"id 01",
-            "구미 6반 마지막 관통",
-            "최고의 짝을 정하자!",
-            "1"
-        ),
-        Group(
-            1,"id 01",
-            "구미 6반 마지막 관통",
-            "최고의 짝을 정하자!",
-            "1"
-        ),
-        Group(
-            1,"id 01",
-            "구미 6반 마지막 관통",
-            "최고의 짝을 정하자!",
-            "1"
-        ),
-        Group(
-            1,"id 01",
-            "구미 6반 마지막 관통",
-            "최고의 짝을 정하자!",
-            "1"
-        ),
-        Group(
-            1,"id 01",
-            "구미 6반 마지막 관통",
-            "최고의 짝을 정하자!",
-            "1"
-        ),
-        Group(
-            1,"id 01",
-            "구미 6반 마지막 관통",
-            "최고의 짝을 정하자!",
-            "1"
-        ),
-        Group(
-            1,"id 01",
-            "구미 6반 마지막 관통",
-            "최고의 짝을 정하자!",
-            "1"
-        ),
-        Group(
-            1,"id 01",
-            "구미 6반 마지막 관통",
-            "최고의 짝을 정하자!",
-            "1"
-        ),
-        Group(
-            1,"id 01",
-            "구미 6반 마지막 관통",
-            "최고의 짝을 정하자!",
-            "1"
-        ),
-        Group(
-            1,"id 01",
-            "구미 6반 마지막 관통",
-            "최고의 짝을 정하자!",
-            "1"
-        ),
-        Group(
-            1,"id 01",
-            "구미 6반 마지막 관통",
-            "최고의 짝을 정하자!",
-            "1"
-        ),
-        Group(
-            1,"id 01",
-            "구미 6반 마지막 관통",
-            "최고의 짝을 정하자!",
-            "1"
-        ),
-        Group(
-            1,"id 01",
-            "구미 6반 마지막 관통",
-            "최고의 짝을 정하자!",
-            "1"
-        ),
-        Group(
-            1,"id 01",
-            "구미 6반 마지막 관통",
-            "최고의 짝을 정하자!",
-            "1"
-        ),
-        Group(
-            1,"id 01",
-            "구미 6반 마지막 관통",
-            "최고의 짝을 정하자!",
-            "1"
-        )
-    )
+    private fun showDefaultSnackbar(msg: String){
+        Snackbar.make(binding.root,msg, Snackbar.LENGTH_SHORT).show()
+    }
+
 }

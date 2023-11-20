@@ -1,7 +1,7 @@
 package com.olduo.last_dance.preseatation.main
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.olduo.last_dance.preseatation.R
 import dagger.hilt.android.AndroidEntryPoint
 

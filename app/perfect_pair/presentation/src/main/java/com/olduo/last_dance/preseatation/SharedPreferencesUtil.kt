@@ -20,6 +20,7 @@ class SharedPreferencesUtil @Inject constructor(
         set(value) {
             val editor = preferences.edit()
             editor.putString(USER_ID, value)
+            editor.apply()
         }
         get() {
             return preferences.getString(USER_ID, null)
@@ -29,6 +30,7 @@ class SharedPreferencesUtil @Inject constructor(
         set(value) {
             val editor = preferences.edit()
             editor.putBoolean(AUTO_LOGIN_STATE, value)
+            editor.apply()
         }
         get() {
             return preferences.getBoolean(AUTO_LOGIN_STATE, false)

@@ -32,7 +32,7 @@ class GroupListAdapter(
     class GroupListViewHolder(val binding: ItemGroupListBinding): RecyclerView.ViewHolder(binding.root){
         fun bind(group: Group,position: Int,context: Context?,clickListener: (Group) -> Unit){
             with(binding){
-                tvName.text = group.name
+                tvName.text = group.title
                 tvDescription.text = group.description
                 context?.let {
                     when(position%3){

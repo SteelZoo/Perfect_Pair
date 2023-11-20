@@ -1,6 +1,7 @@
 package com.olduo.last_dance.modules
 
 import com.olduo.last_dance.data.datasource.PERFECT_PAIR_BASE_URL
+import com.olduo.last_dance.data.datasource.remote.service.GroupService
 import com.olduo.last_dance.data.datasource.remote.service.UserService
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -37,5 +38,11 @@ object NetworkModule {
     @Singleton
     fun provideUserService(retrofit: Retrofit): UserService{
         return retrofit.create(UserService::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideGroupService(retrofit: Retrofit): GroupService{
+        return retrofit.create(GroupService::class.java)
     }
 }
