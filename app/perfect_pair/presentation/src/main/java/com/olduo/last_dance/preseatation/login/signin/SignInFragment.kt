@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.snackbar.Snackbar
 import com.olduo.last_dance.preseatation.R
 import com.olduo.last_dance.preseatation.databinding.FragmentSignInBinding
 import com.ssafy.template.board.config.BaseFragment
@@ -52,12 +53,16 @@ class SignInFragment : BaseFragment<FragmentSignInBinding>(FragmentSignInBinding
             it.getContentIfNotHandled()?.let {
                 if (it){
                     val user = signInViewModel.loginedUser.value!!
-                    showCustomToast("로그인에 성공했습니다\n${user}")
+                    showDefaultSnackbar("${user.name}님 환영합니다")
                     findNavController().navigate(R.id.action_signInFragment_to_main_nav_graph)
                 } else {
                     showCustomToast("로그인에 실패했습니다")
                 }
             }
         }
+    }
+
+    private fun showDefaultSnackbar(msg: String){
+        Snackbar.make(binding.root,msg, Snackbar.LENGTH_SHORT).show()
     }
 }

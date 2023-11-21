@@ -1,6 +1,7 @@
 package com.olduo.last_dance.modules
 
 import com.olduo.last_dance.data.datasource.PERFECT_PAIR_BASE_URL
+import com.olduo.last_dance.data.datasource.remote.service.AnswerService
 import com.olduo.last_dance.data.datasource.remote.service.GroupService
 import com.olduo.last_dance.data.datasource.remote.service.QuizSevice
 import com.olduo.last_dance.data.datasource.remote.service.UserService
@@ -51,5 +52,11 @@ object NetworkModule {
     @Singleton
     fun provideQuizService(retrofit: Retrofit): QuizSevice{
         return retrofit.create(QuizSevice::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideAnswerService(retrofit: Retrofit): AnswerService{
+        return retrofit.create(AnswerService::class.java)
     }
 }

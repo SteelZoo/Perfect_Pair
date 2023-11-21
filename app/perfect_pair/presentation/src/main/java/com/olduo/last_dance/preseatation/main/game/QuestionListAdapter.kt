@@ -17,7 +17,7 @@ class QuestionListAdapter(
     val clickListener: (Question) -> Unit
 ): RecyclerView.Adapter<QuestionListAdapter.QuestionListViewHolder>() {
     private var context: Context? = null
-    private val selectedList = MutableList(itemCount,{-1})
+    private var selectedList = MutableList(itemCount,{-1})
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): QuestionListViewHolder {
         if (context == null){
@@ -38,10 +38,32 @@ class QuestionListAdapter(
         return selectedList.toList()
     }
 
+    fun setSelectedList(list: List<Int>): Boolean{
+        return if (selectedList.size == list.size){
+            selectedList = list.toMutableList()
+            notifyDataSetChanged()
+            true
+        } else {
+            false
+        }
+    }
+
     inner class QuestionListViewHolder(val binding: ItemQuestionListBinding): RecyclerView.ViewHolder(binding.root){
         fun bind(question: Question,position: Int){
             binding.btnFirstQuestion.text = question.first
             binding.btnSecondQuestion.text = question.second
+
+            context?.let {
+                selectedList[position].let {selectedValue->
+                    if (selectedValue == 1){
+                        binding.btnFirstQuestion.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(it, R.color.bluelagoo_deep))
+                        binding.btnSecondQuestion.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(it, R.color.bluelagoo_light))
+                    } else if (selectedValue == 2){
+                        binding.btnFirstQuestion.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(it, R.color.bluelagoo_light))
+                        binding.btnSecondQuestion.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(it, R.color.bluelagoo_deep))
+                    }
+                }
+            }
 
             binding.btnFirstQuestion.setOnClickListener {
                 setSelect(position,1)
@@ -52,7 +74,7 @@ class QuestionListAdapter(
             }
         }
 
-        private fun setSelect(position: Int, i: Int){
+        fun setSelect(position: Int, i: Int){
             selectedList[position] = i
 
             context?.let {

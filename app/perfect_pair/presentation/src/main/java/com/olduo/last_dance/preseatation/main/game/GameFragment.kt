@@ -1,21 +1,31 @@
 package com.olduo.last_dance.preseatation.main.game
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
+import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import com.google.android.material.snackbar.Snackbar
 import com.olduo.last_dance.preseatation.R
 import com.olduo.last_dance.preseatation.databinding.FragmentGameBinding
-import com.olduo.last_dance.preseatation.model.GameSet
-import com.olduo.last_dance.preseatation.model.Question
+import com.olduo.last_dance.preseatation.main.MainViewModel
 import com.ssafy.template.board.config.BaseFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class GameFragment :
     BaseFragment<FragmentGameBinding>(FragmentGameBinding::bind, R.layout.fragment_game) {
+    private val mainViewModel: MainViewModel by activityViewModels()
+    private val gameViewModel: GameViewModel by viewModels()
 
-    
 
     private lateinit var questionListAdapter: QuestionListAdapter
+
+    private var isdialogIgnore = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,12 +40,22 @@ class GameFragment :
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        questionListAdapter = QuestionListAdapter(gameSet()) {
+
+        questionListAdapter = QuestionListAdapter(mainViewModel.selectedGame) {
             binding.vpQuestions.currentItem = binding.vpQuestions.currentItem + 1
         }
         binding.vpQuestions.adapter = questionListAdapter
 
+        setUi()
+        setListener()
+        setObserve()
 
+        //풀었던 이력이 있는지 확인
+        showLoadingDialog()
+        gameViewModel.getSolvedAnswer(mainViewModel.selectedGame.id)
+    }
+
+    private fun setUi() {
         /**
         val currentVisibleItemPx = 120
         binding.vpQuestions.addItemDecoration(object: RecyclerView.ItemDecoration() {
@@ -75,22 +95,63 @@ class GameFragment :
 //        })
 //
 //        binding.vpQuestions.setPageTransformer(transform)
-
-
     }
 
-    private fun gameSet(): GameSet {
-        return GameSet(
-            1,
-            1,
-            "1",
-            listOf(
-                Question("문제문제문제문제", "문제문제문제문제"),
-                Question("문제문제문제문제", "문제문제문제문제"),
-                Question("문제문제문제문제", "문제문제문제문제"),
-                Question("문제문제문제문제", "문제문제문제문제")
-            )
-        )
+    private fun setListener() {
+        binding.btnSubmitQuestion.setOnClickListener {
+            val unSelectedIndex = questionListAdapter.getSelectedList().indexOf(-1)
+            if (unSelectedIndex == -1) {
+                gameViewModel.sendAnswer(
+                    mainViewModel.selectedGame.id,
+                    questionListAdapter.getSelectedList()
+                )
+            } else {
+                showDefaultSnackbar("모든 문항을 선택해주세요")
+                binding.vpQuestions.currentItem = unSelectedIndex
+            }
+        }
     }
 
+    private fun setObserve(){
+        gameViewModel.isSendSuccess.observe(viewLifecycleOwner){result->
+            result.getOrNull().let {
+                if (it != null){
+                    if (it){
+                        showDefaultSnackbar("제출완료")
+                        findNavController().popBackStack()
+                    } else {
+                        showDefaultSnackbar("제출에 실패했습니다.")
+                    }
+                } else {
+                    showDefaultSnackbar("네트워크오류")
+                }
+            }
+        }
+
+        gameViewModel.isSolved.observe(viewLifecycleOwner){
+            dismissLoadingDialog()
+            if (it != null){
+                AlertDialog.Builder(requireContext())
+                    .setMessage("이미 제출한 정답이 있습니다.\n다시 푸시겠습니까?\n취소시 이전화면으로 돌아갑니다.")
+                    .setPositiveButton("확인"){dialog,_ ->
+                        questionListAdapter.setSelectedList(it.answerList)
+                        isdialogIgnore = false
+                    }
+                    .setNegativeButton("취소"){dialog,_ ->
+                        isdialogIgnore = false
+                        findNavController().popBackStack()
+                    }
+                    .setOnDismissListener {
+                        if (isdialogIgnore){
+                            findNavController().popBackStack()
+                        }
+                    }
+                    .show()
+            }
+        }
+    }
+
+    private fun showDefaultSnackbar(msg: String) {
+        Snackbar.make(binding.root, msg, Snackbar.LENGTH_SHORT).show()
+    }
 }

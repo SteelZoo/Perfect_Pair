@@ -1,5 +1,6 @@
 package com.olduo.last_dance.preseatation.main.group
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,14 +8,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
 import com.olduo.last_dance.preseatation.R
 import com.olduo.last_dance.preseatation.databinding.FragmentGroupBinding
 import com.olduo.last_dance.preseatation.main.MainViewModel
-import com.olduo.last_dance.preseatation.model.GameSet
-import com.olduo.last_dance.preseatation.model.Question
 import com.ssafy.template.board.config.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
+
 
 @AndroidEntryPoint
 class GroupFragment : BaseFragment<FragmentGroupBinding>(FragmentGroupBinding::bind,R.layout.fragment_group) {
@@ -52,12 +51,20 @@ class GroupFragment : BaseFragment<FragmentGroupBinding>(FragmentGroupBinding::b
         binding.fabMakeGame.setOnClickListener {
             this.findNavController().navigate(R.id.action_groupFragment_to_crateGameFragment)
         }
+
+        binding.fabInvite.setOnClickListener {
+            val sharingIntent = Intent(Intent.ACTION_SEND)
+            sharingIntent.type = "text/plain"
+            sharingIntent.putExtra(Intent.EXTRA_TEXT, mainViewModel.selectedGroup.code)
+            startActivity(Intent.createChooser(sharingIntent, "그룹 초대 코드"))
+        }
     }
 
     private fun setObserve(){
         groupViewModel.gameSetList.observe(viewLifecycleOwner){
             binding.rvGameList.adapter = GroupGameListAdapter(it){
-
+                mainViewModel.selectedGame = it.copy()
+                findNavController().navigate(R.id.action_groupFragment_to_gameRankFragment)
             }
         }
     }
