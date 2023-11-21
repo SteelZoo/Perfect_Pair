@@ -31,9 +31,6 @@ public class PerfectPairApplication {
        final ApiInfo apiInfo = new ApiInfoBuilder()
                .title("Perfect Pair Rest API")
                .description("<h3>Perfect Pair에서 제공되는 Rest api의 문서 제공</h3>")
-               .contact(new Contact("SSAFY", "https://edu.ssafy.com", "ssafy@ssafy.com"))
-               .license("MIT License")
-               .version("1.0")
                .build();
        
         Docket docket = new Docket(DocumentationType.SWAGGER_2)

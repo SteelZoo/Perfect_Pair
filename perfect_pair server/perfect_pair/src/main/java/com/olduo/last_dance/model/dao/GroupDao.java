@@ -16,5 +16,5 @@ public interface GroupDao {
 	
 	Group selectGroupByCode(String code);
 	
-	int isJoin(Map map);
+	Group isJoin(Map map);
 }

@@ -72,7 +72,7 @@ public class GroupServiceImpl implements GroupService {
 					newMap.put("uId", uId);
 					newMap.put("gId", group.getId());
 				
-				if (gDao.isJoin(newMap) <= 0) {
+				if (gDao.isJoin(newMap) ==  null) {
 					gDao.insertUserToGroup(newMap);
 					return true;
 				}
@@ -88,7 +88,7 @@ public class GroupServiceImpl implements GroupService {
 	}
 
 	@Override
-	public int isJoin(Map map) {
+	public Group isJoin(Map map) {
 		HashMap isJoinMap = new HashMap<>();
 		String uId = isJoinMap.get("uId").toString();
 		String gId = isJoinMap.get("gId").toString();
