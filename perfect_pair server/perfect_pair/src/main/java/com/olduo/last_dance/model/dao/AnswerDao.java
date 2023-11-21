@@ -12,5 +12,5 @@ public interface AnswerDao {
 	
 	Map selectAnswer(Map map);
 	
-	List<Answer> getAnswerByQuiz(Integer qId);
+	List<Map> getAnswerByQuiz(Integer qId);
 }
