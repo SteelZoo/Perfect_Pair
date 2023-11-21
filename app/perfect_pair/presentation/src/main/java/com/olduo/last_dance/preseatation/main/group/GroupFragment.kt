@@ -4,14 +4,23 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.olduo.last_dance.preseatation.R
 import com.olduo.last_dance.preseatation.databinding.FragmentGroupBinding
+import com.olduo.last_dance.preseatation.main.MainViewModel
 import com.olduo.last_dance.preseatation.model.GameSet
 import com.olduo.last_dance.preseatation.model.Question
 import com.ssafy.template.board.config.BaseFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class GroupFragment : BaseFragment<FragmentGroupBinding>(FragmentGroupBinding::bind,R.layout.fragment_group) {
+    private val mainViewModel: MainViewModel by activityViewModels()
+    private val groupViewModel: GroupViewModel by viewModels()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,31 +39,26 @@ class GroupFragment : BaseFragment<FragmentGroupBinding>(FragmentGroupBinding::b
         super.onViewCreated(view, savedInstanceState)
 
         setListener()
+        setObserve()
 
-        binding.rvGameList.adapter = GroupGameListAdapter(gamelist()){
-            this.findNavController().navigate(R.id.action_groupFragment_to_gameRankFragment)
-        }
+        getGroupGameList()
     }
 
-    private fun setListener(){
+    private fun getGroupGameList(){
+        groupViewModel.getGameSets(mainViewModel.selectedGroup.id)
+    }
+
+    private fun setListener() {
         binding.fabMakeGame.setOnClickListener {
             this.findNavController().navigate(R.id.action_groupFragment_to_crateGameFragment)
         }
     }
 
-    private fun gamelist():List<GameSet> {
-        return mutableListOf<GameSet>().apply {
-           for (i in 1..10){
-               this.add(
-                   GameSet(
-                       i.toString(),
-                       i.toString(),
-                       listOf(
-                           Question("", "")
-                       )
-                   )
-               )
-           }
+    private fun setObserve(){
+        groupViewModel.gameSetList.observe(viewLifecycleOwner){
+            binding.rvGameList.adapter = GroupGameListAdapter(it){
+
+            }
         }
     }
 }

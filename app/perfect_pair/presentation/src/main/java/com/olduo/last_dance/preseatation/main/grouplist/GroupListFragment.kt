@@ -4,17 +4,19 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.olduo.last_dance.preseatation.R
 import com.olduo.last_dance.preseatation.databinding.FragmentGroupListBinding
+import com.olduo.last_dance.preseatation.main.MainViewModel
 import com.ssafy.template.board.config.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class GroupListFragment : BaseFragment<FragmentGroupListBinding>(FragmentGroupListBinding::bind,R.layout.fragment_group_list) {
-
+    private val mainViewModel: MainViewModel by activityViewModels()
     private val groupListViewModel: GroupListViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -55,7 +57,8 @@ class GroupListFragment : BaseFragment<FragmentGroupListBinding>(FragmentGroupLi
         groupListViewModel.groupList.observe(viewLifecycleOwner){result->
             if (result.isSuccess){
                 binding.rvGroupList.adapter = GroupListAdapter(result.getOrDefault(listOf())){
-                    this.findNavController().navigate(R.id.action_groupListFragment_to_groupFragment)
+                    mainViewModel.selectedGroup = it.copy()
+                    findNavController().navigate(R.id.action_groupListFragment_to_groupFragment)
                 }
             } else {
                 showDefaultSnackbar("그룹불러오기에 실패했습니다.")

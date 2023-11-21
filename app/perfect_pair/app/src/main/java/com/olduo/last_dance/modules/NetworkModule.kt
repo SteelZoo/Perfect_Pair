@@ -2,6 +2,7 @@ package com.olduo.last_dance.modules
 
 import com.olduo.last_dance.data.datasource.PERFECT_PAIR_BASE_URL
 import com.olduo.last_dance.data.datasource.remote.service.GroupService
+import com.olduo.last_dance.data.datasource.remote.service.QuizSevice
 import com.olduo.last_dance.data.datasource.remote.service.UserService
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -44,5 +45,11 @@ object NetworkModule {
     @Singleton
     fun provideGroupService(retrofit: Retrofit): GroupService{
         return retrofit.create(GroupService::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideQuizService(retrofit: Retrofit): QuizSevice{
+        return retrofit.create(QuizSevice::class.java)
     }
 }

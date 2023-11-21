@@ -13,6 +13,8 @@ import com.ssafy.template.board.config.BaseFragment
 class GameFragment :
     BaseFragment<FragmentGameBinding>(FragmentGameBinding::bind, R.layout.fragment_game) {
 
+    
+
     private lateinit var questionListAdapter: QuestionListAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,16 +36,15 @@ class GameFragment :
         binding.vpQuestions.adapter = questionListAdapter
 
 
-
         /**
         val currentVisibleItemPx = 120
         binding.vpQuestions.addItemDecoration(object: RecyclerView.ItemDecoration() {
-            override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
-                outRect.right = currentVisibleItemPx
-                outRect.left = currentVisibleItemPx
-                outRect.top = currentVisibleItemPx
-                outRect.bottom = currentVisibleItemPx
-            }
+        override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
+        outRect.right = currentVisibleItemPx
+        outRect.left = currentVisibleItemPx
+        outRect.top = currentVisibleItemPx
+        outRect.bottom = currentVisibleItemPx
+        }
         })
         val nextVisibleItemPx = 100
         val pageTranslationX = nextVisibleItemPx + currentVisibleItemPx
@@ -51,7 +52,7 @@ class GameFragment :
         binding.vpQuestions.offscreenPageLimit = 1
 
         binding.vpQuestions.setPageTransformer { page, position ->
-            page.translationX = -pageTranslationX * ( position)
+        page.translationX = -pageTranslationX * ( position)
         }
 
         var transform = CompositePageTransformer()
@@ -60,10 +61,10 @@ class GameFragment :
         })
 
         transform.addTransformer(ViewPager2.PageTransformer{ view: View, fl: Float ->
-            var v = 1-Math.abs(fl)
-            view.scaleY = 0.8f + v * 0.2f
+        var v = 1-Math.abs(fl)
+        view.scaleY = 0.8f + v * 0.2f
         })
-        */
+         */
 
 //        binding.vpQuestions.offscreenPageLimit = 3
 //        var transform = CompositePageTransformer()
@@ -76,12 +77,12 @@ class GameFragment :
 //        binding.vpQuestions.setPageTransformer(transform)
 
 
-
     }
 
     private fun gameSet(): GameSet {
         return GameSet(
-            "1",
+            1,
+            1,
             "1",
             listOf(
                 Question("문제문제문제문제", "문제문제문제문제"),

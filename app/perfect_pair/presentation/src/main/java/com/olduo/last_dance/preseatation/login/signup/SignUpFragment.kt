@@ -111,6 +111,8 @@ class SignUpFragment : BaseFragment<FragmentSignUpBinding>(FragmentSignUpBinding
                 showDefaultSnackbar("비밀번호가 최소 글자수보다 작습니다")
             } else if (id != checkId) {
                 showDefaultSnackbar("아이디 중복체크를 해야합니다")
+            } else if (id.contains(" ") || pass.contains(" ") || name.contains(" ")) {
+                showDefaultSnackbar("각 항목은 공백이 없어야합니다.")
             } else {
                 return true
             }

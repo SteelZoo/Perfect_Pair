@@ -64,7 +64,7 @@ class JoinGroupFragment : BaseFragment<FragmentJoinGroupBinding>(
     }
 
     private fun checkInputValidate(): Boolean {
-        return !joinGroupViewModel.code.value.isNullOrEmpty()
+        return !joinGroupViewModel.code.value.isNullOrBlank()
     }
 
     private fun showDefaultSnackbar(msg: String){

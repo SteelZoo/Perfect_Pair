@@ -68,7 +68,7 @@ class CreateGroupFragment : BaseFragment<FragmentCreateGroupBinding>(FragmentCre
 
     private fun checkInputValidate(title: String?, des: String?): Boolean{
         Log.d("TAG", "checkInputValidate: $title $des")
-        return !title.isNullOrEmpty() && !des.isNullOrEmpty() && 2 <= title.length && title.length <= 15 && des.length <= 30
+        return !title.isNullOrBlank() && !des.isNullOrBlank() && 2 <= title.length && title.length <= 15 && des.length <= 30
     }
 
     private fun showDefaultSnackbar(msg: String){

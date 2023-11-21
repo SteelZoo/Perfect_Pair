@@ -26,7 +26,7 @@ class GroupGameListAdapter(
 
     class GroupGameListViewHolder(val binding: ItemGameListBinding): RecyclerView.ViewHolder(binding.root){
         fun bind(gameSet: GameSet, clickListener: (GameSet) -> Unit){
-            binding.tvGameName.text = gameSet.gId
+            binding.tvGameName.text = gameSet.title
             binding.tvGameFirstQustion.text = "${gameSet.questionList.first().first} vs ${gameSet.questionList.first().second}"
             binding.root.setOnClickListener {
                 clickListener(gameSet)
