@@ -9,13 +9,13 @@ public interface QuizService {
      * Quiz를 등록한다.
      * @param Quiz
      */
-    void addQuiz(Quiz quiz);
+	Boolean addQuiz(Quiz quiz);
     
     /**
      * id에 해당하는 Quiz을 삭제한다.
      * @param id
      */
-    void removeQuiz(Integer id);
+	Boolean removeQuiz(Integer id);
     
     /**
      * userId에 해당하는 Group의 목록을 반환한다.

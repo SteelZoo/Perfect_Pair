@@ -38,8 +38,7 @@ public class GroupRestController {
 	@ApiOperation(value = "group을 생성(추가)한다. 성공하면 true를 리턴한다.", response = Boolean.class)
 	public Boolean insert(@RequestBody Group group, @PathVariable String userId) throws NoSuchAlgorithmException {
 		group.setId(0);
-		gService.addGroup(group, userId);
-		return true;
+		return gService.addGroup(group, userId);
 	}
 
 	@PostMapping("/{code}/{userId}")

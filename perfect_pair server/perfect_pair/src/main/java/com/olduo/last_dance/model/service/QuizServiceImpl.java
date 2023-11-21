@@ -15,13 +15,22 @@ public class QuizServiceImpl implements QuizService{
 	QuizDao qDao;
 
 	@Override
-	public void addQuiz(Quiz quiz) {
-		qDao.insert(quiz);
+	public Boolean addQuiz(Quiz quiz) {
+		if (qDao.getQuizByGroup(quiz.getgId()).size() < 10) {
+			qDao.insert(quiz);
+			return true;
+		}
+		
+		return false;
 	}
 
 	@Override
-	public void removeQuiz(Integer id) {
-		qDao.delete(id);
+	public Boolean removeQuiz(Integer id) {
+		if(qDao.delete(id) > 0) {
+			return true;
+		}
+		
+		return false;
 	}
 
 	@Override

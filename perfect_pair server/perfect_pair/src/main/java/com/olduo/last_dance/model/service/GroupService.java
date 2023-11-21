@@ -13,7 +13,7 @@ public interface GroupService {
      * @param group
 	 * @throws NoSuchAlgorithmException 
      */
-    void addGroup(Group group, String userId) throws NoSuchAlgorithmException;
+    Boolean addGroup(Group group, String userId) throws NoSuchAlgorithmException;
     
     /**
      * id에 해당하는 Group을 삭제한다.

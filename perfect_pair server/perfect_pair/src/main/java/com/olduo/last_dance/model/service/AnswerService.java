@@ -10,7 +10,7 @@ public interface AnswerService {
      * user의 answer를 등록한다.
      * @param answer
      */
-    void addAnswer(Answer answer);
+	Boolean addAnswer(Answer answer);
     
     /**
      * answer에 해당하는 Answer을 수정한다.
@@ -31,5 +31,4 @@ public interface AnswerService {
      * @return
      */
     List<Map> getAnswerByQuiz(Integer qId);
-
 }

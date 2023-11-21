@@ -1,5 +1,6 @@
 package com.olduo.last_dance.model.service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -16,8 +17,18 @@ public class AnswerServiceImpl implements AnswerService {
 	AnswerDao aDao;
 
 	@Override
-	public void addAnswer(Answer answer) {
-		aDao.insert(answer);
+	public Boolean addAnswer(Answer answer) {
+		HashMap map = new HashMap<>();
+		map.put("qId", answer.getqId());
+		map.put("userId", answer.getUserId());
+		
+		if (aDao.selectAnswer(map) == null) {
+			if (aDao.insert(answer) > 0) {
+				return true;
+			}
+		}
+		
+		return false;
 	}
 
 	@Override
