@@ -21,8 +21,8 @@ public class AnswerServiceImpl implements AnswerService {
 	}
 
 	@Override
-	public void updateAnswer(Answer answer) {
-		aDao.update(answer);
+	public int updateAnswer(Answer answer) {
+		return aDao.update(answer);
 	}
 
 	@Override
@@ -31,7 +31,7 @@ public class AnswerServiceImpl implements AnswerService {
 	}
 
 	@Override
-	public List<Answer> getAnswerByQuiz(Integer qId) {
+	public List<Map> getAnswerByQuiz(Integer qId) {
 		return aDao.getAnswerByQuiz(qId);
 	}
 }

@@ -16,7 +16,7 @@ public interface AnswerService {
      * answer에 해당하는 Answer을 수정한다.
      * @param answer
      */
-    void updateAnswer(Answer answer);
+    int updateAnswer(Answer answer);
     
     /**
      * qId와 uId에 해당하는 Answer 객체에서 사용자의 answer를 반환한다.
@@ -30,6 +30,6 @@ public interface AnswerService {
      * @param userId
      * @return
      */
-    List<Answer> getAnswerByQuiz(Integer qId);
+    List<Map> getAnswerByQuiz(Integer qId);
 
 }

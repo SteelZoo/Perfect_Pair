@@ -33,10 +33,18 @@
 		t_answer.userId = #{userId} AND t_answer.qId = #{qId};
 	</select>
 
-	<select id="getAnswerByQuiz" parameterType="int" resultType="Answer">
-		SELECT *
-		FROM t_answer
-		WHERE qId = #{qId}
+	<select id="getAnswerByQuiz" parameterType="int" resultType="map">
+		SELECT
+		t_answer.id AS answerId,
+		t_answer.qId,
+		t_answer.userId,
+		t_user.name AS userName,
+		t_answer.answer
+		FROM
+		t_answer
+		JOIN
+		t_user ON t_user.userId = t_answer.userId
+		WHERE t_answer.qId = #{qId};
 	</select>
 
 </mapper>

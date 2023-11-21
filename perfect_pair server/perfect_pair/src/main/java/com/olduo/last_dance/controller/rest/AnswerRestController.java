@@ -41,8 +41,11 @@ public class AnswerRestController {
 	@PutMapping
 	@ApiOperation(value = "answer를 수정한다.성공하면 true를 리턴한다.", response = Boolean.class)
 	public Boolean update(@RequestBody Answer answer) {
-		aService.updateAnswer(answer);
-		return true;
+		if (aService.updateAnswer(answer) > 0) {
+			return true;
+		}
+		
+		return false;
 	}
 	
 	@GetMapping("/{qId}/{userId}")
@@ -56,7 +59,7 @@ public class AnswerRestController {
 	
 	@GetMapping("/{qId}")
     @ApiOperation(value="quiz의 전체 answer 목록을 반환한다.", response = List.class)
-    public ResponseEntity<List<Answer>> getAnswerByQuiz(@PathVariable Integer qId){
-        return new ResponseEntity<List<Answer>>(aService.getAnswerByQuiz(qId), HttpStatus.OK);
+    public ResponseEntity<List<Map>> getAnswerByQuiz(@PathVariable Integer qId){
+        return new ResponseEntity<List<Map>>(aService.getAnswerByQuiz(qId), HttpStatus.OK);
     }
 }
