@@ -49,5 +49,5 @@ public interface GroupService {
      * @param map -> uId, gId
      * @return
      */
-    int isJoin(Map map);
+    Group isJoin(Map map);
 }

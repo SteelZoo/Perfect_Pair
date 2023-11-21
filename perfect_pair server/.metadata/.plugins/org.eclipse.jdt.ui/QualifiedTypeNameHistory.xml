@@ -13,8 +13,6 @@
 <fullyQualifiedTypeName name="org.springframework.cache.annotation.EnableCaching"/>
 <fullyQualifiedTypeName name="springfox.documentation.swagger2.annotations.EnableSwagger2"/>
 <fullyQualifiedTypeName name="org.mybatis.spring.annotation.MapperScan"/>
-<fullyQualifiedTypeName name="com.olduo.last_dance.model.dao.UserDao"/>
-<fullyQualifiedTypeName name="com.olduo.last_dance.model.service.UserService"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
 <fullyQualifiedTypeName name="com.olduo.last_dance.model.dto.User"/>
@@ -22,8 +20,6 @@
 <fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
 <fullyQualifiedTypeName name="java.io.UnsupportedEncodingException"/>
 <fullyQualifiedTypeName name="java.net.URLEncoder"/>
-<fullyQualifiedTypeName name="java.util.Map"/>
-<fullyQualifiedTypeName name="java.util.HashMap"/>
 <fullyQualifiedTypeName name="com.olduo.last_dance.model.dao.GroupUserDao"/>
 <fullyQualifiedTypeName name="com.olduo.last_dance.controller.rest.GroupRestController"/>
 <fullyQualifiedTypeName name="java.security.NoSuchAlgorithmException"/>
@@ -38,11 +34,15 @@
 <fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
 <fullyQualifiedTypeName name="com.olduo.last_dance.model.dao.AnswerDao"/>
-<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
 <fullyQualifiedTypeName name="com.olduo.last_dance.model.service.AnswerService"/>
 <fullyQualifiedTypeName name="com.olduo.last_dance.model.dto.Answer"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PutMapping"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
 <fullyQualifiedTypeName name="io.swagger.annotations.ApiOperation"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
+<fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="com.olduo.last_dance.model.service.UserService"/>
+<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+<fullyQualifiedTypeName name="com.olduo.last_dance.model.dao.UserDao"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
 </qualifiedTypeNameHistroy>
