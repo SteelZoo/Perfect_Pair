@@ -11,4 +11,11 @@
         <item>#9BD1DD</item>
         <item>#DCE4ED</item>
     </string-array>
+
+    <string-array name="group_color_array">
+        <item>#9dc6d8</item>
+        <item>#00b2ca</item>
+        <item>#7accb8</item>
+        <item>#0f4c81</item>
+    </string-array>
 </resources>
