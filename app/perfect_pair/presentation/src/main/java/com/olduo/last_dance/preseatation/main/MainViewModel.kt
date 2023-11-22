@@ -15,4 +15,9 @@ class MainViewModel @Inject constructor(
 ) : ViewModel() {
     lateinit var selectedGroup: Group
     lateinit var selectedGame: GameSet
+
+    fun logout(){
+        sharedPreferencesUtil.userId = null
+        sharedPreferencesUtil.autoLoginState = false
+    }
 }

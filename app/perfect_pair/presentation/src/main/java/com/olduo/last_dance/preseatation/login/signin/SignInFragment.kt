@@ -9,6 +9,7 @@ import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.olduo.last_dance.preseatation.R
 import com.olduo.last_dance.preseatation.databinding.FragmentSignInBinding
+import com.olduo.last_dance.preseatation.login.LoginActivity
 import com.ssafy.template.board.config.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -54,7 +55,7 @@ class SignInFragment : BaseFragment<FragmentSignInBinding>(FragmentSignInBinding
                 if (it){
                     val user = signInViewModel.loginedUser.value!!
                     showDefaultSnackbar("${user.name}님 환영합니다")
-                    findNavController().navigate(R.id.action_signInFragment_to_main_nav_graph)
+                    (requireActivity() as LoginActivity).moveToMainActivity()
                 } else {
                     showCustomToast("로그인에 실패했습니다")
                 }
