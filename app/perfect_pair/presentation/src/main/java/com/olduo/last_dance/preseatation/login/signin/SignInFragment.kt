@@ -1,5 +1,6 @@
 package com.olduo.last_dance.preseatation.login.signin
 
+import android.opengl.Visibility
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,10 +13,17 @@ import com.olduo.last_dance.preseatation.databinding.FragmentSignInBinding
 import com.olduo.last_dance.preseatation.login.LoginActivity
 import com.ssafy.template.board.config.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.cancel
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 @AndroidEntryPoint
 class SignInFragment : BaseFragment<FragmentSignInBinding>(FragmentSignInBinding::bind,R.layout.fragment_sign_in) {
-//    @Inject
+
+    private val splashCoroutineScope = CoroutineScope(Dispatchers.Default)
     private val signInViewModel: SignInViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,12 +39,18 @@ class SignInFragment : BaseFragment<FragmentSignInBinding>(FragmentSignInBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        splashImage()
 
         binding.viewmodel = signInViewModel
         binding.lifecycleOwner = viewLifecycleOwner
 
         setListener()
         setObserve()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        splashCoroutineScope.cancel()
     }
 
     private fun setListener(){
@@ -65,5 +79,14 @@ class SignInFragment : BaseFragment<FragmentSignInBinding>(FragmentSignInBinding
 
     private fun showDefaultSnackbar(msg: String){
         Snackbar.make(binding.root,msg, Snackbar.LENGTH_SHORT).show()
+    }
+
+    private fun splashImage(){
+        splashCoroutineScope.launch {
+            delay(1500)
+            withContext(Dispatchers.Main) {
+                binding.layoutSplash.visibility = View.GONE
+            }
+        }
     }
 }

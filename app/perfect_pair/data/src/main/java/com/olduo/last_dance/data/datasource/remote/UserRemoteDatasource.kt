@@ -1,7 +1,9 @@
 package com.olduo.last_dance.data.datasource.remote
 
 import android.accounts.NetworkErrorException
+import android.util.Log
 import com.olduo.last_dance.data.datasource.remote.service.UserService
+import com.olduo.last_dance.data.mapper.toUserDto
 import com.olduo.last_dance.data.model.UserDto
 import javax.inject.Inject
 
@@ -32,12 +34,18 @@ class UserRemoteDatasource @Inject constructor(
     }
 
     suspend fun autoSignIn(userId: String): UserDto? {
+        Log.d("TAG", "autoSignInDATA: ")
         val res = kotlin.runCatching {
-            userService.autoSignIn(userId)
-        }.getOrElse { return null }
+            userService.autoSignIn(userId).also {
+                Log.d("TAG", "autoSignIn: ${it.body()}")
+            }
+        }.getOrElse {
+            Log.d("TAG", "autoSignIn: ${it.message}")
+            return null
+        }
 
-        return if (res.isSuccessful && res.body() != null && res.body()!!.userId != null) {
-            res.body()!!
+        return if (res.isSuccessful && res.body() != null && res.body()!!.user.userId != null) {
+            res.body()!!.toUserDto()
         } else {
             null
         }

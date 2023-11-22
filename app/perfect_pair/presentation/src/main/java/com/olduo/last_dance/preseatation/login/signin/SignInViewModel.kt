@@ -1,5 +1,6 @@
 package com.olduo.last_dance.preseatation.login.signin
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -20,6 +21,7 @@ class SignInViewModel @Inject constructor(
 ) : ViewModel() {
     val id = MutableLiveData("")
     val pass = MutableLiveData("")
+    val autoChecked = MutableLiveData(false)
 
     private var _loginedUser = MutableLiveData<User>()
     val loginedUser: LiveData<User>
@@ -28,6 +30,17 @@ class SignInViewModel @Inject constructor(
     private var _isLoginSuccess = MutableLiveData<Event<Boolean>>()
     val isLoginSuccess: LiveData<Event<Boolean>>
         get() = _isLoginSuccess
+
+    init {
+        Log.d("TAG", "autoLogin: ${sharedPreferencesUtil.autoLoginState}, ${sharedPreferencesUtil.userId}")
+
+        if (sharedPreferencesUtil.autoLoginState){
+            sharedPreferencesUtil.userId?.let {userId ->
+                autoChecked.value = sharedPreferencesUtil.autoLoginState
+                autoLogin()
+            }
+        }
+    }
 
     fun signIn(){
         viewModelScope.launch {
@@ -43,6 +56,7 @@ class SignInViewModel @Inject constructor(
     fun autoLogin() {
         viewModelScope.launch {
             val id = sharedPreferencesUtil.userId
+            Log.d("TAG", "autoLoginviewmodel: $id")
             if (id != null) {
                 val user = signInUsecase.autoLotin(id)?.toPresentation()
                 setLoginState(user)
@@ -54,6 +68,7 @@ class SignInViewModel @Inject constructor(
 
     private fun setLoginState(user: User?){
         if (user != null){
+            sharedPreferencesUtil.autoLoginState = autoChecked.value?:false
             sharedPreferencesUtil.userId = user.id
             _loginedUser.postValue(user!!)
             _isLoginSuccess.postValue(Event(true))
