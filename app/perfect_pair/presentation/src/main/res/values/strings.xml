@@ -3,4 +3,12 @@
     <string name="signup"><u>회원가입</u></string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="game_color_array">
+        <item>#86B1E5</item>
+        <item>#CCEAD8</item>
+        <item>#B7CAE2</item>
+        <item>#9BD1DD</item>
+        <item>#DCE4ED</item>
+    </string-array>
 </resources>

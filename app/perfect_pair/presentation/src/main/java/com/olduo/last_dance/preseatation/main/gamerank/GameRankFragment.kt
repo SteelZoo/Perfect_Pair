@@ -60,6 +60,18 @@ class GameRankFragment : BaseFragment<FragmentGameRankBinding>(FragmentGameRankB
         binding.btnJoinQuestion.setOnClickListener {
             this.findNavController().navigate(R.id.action_gameRankFragment_to_gameFragment)
         }
+
+        binding.switchMyRank.setOnCheckedChangeListener { buttonView, isChecked ->
+            if (isChecked) {
+                gameRankViewModel.myScoreList.value?.let {list ->
+                    rankListAdapter.submitList(list)
+                }
+            } else {
+                gameRankViewModel.scoreList.value?.let {list ->
+                    rankListAdapter.submitList(list)
+                }
+            }
+        }
     }
 
     private fun setObaserve(){

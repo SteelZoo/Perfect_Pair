@@ -11,17 +11,6 @@ import com.olduo.last_dance.preseatation.R
 import com.olduo.last_dance.preseatation.login.LoginActivity
 import dagger.hilt.android.AndroidEntryPoint
 
-
-/**
- * TODO
- * GroupFragment ui
- * GameRankFragment ui
- * GameFragment
- * CrateGroupFragment ui
- * JoinGroupFragment ui
- * CrateGameFragment ui
- */
-
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

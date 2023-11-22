@@ -22,11 +22,11 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
+            android:fontFamily="@font/font_jamsil_5_bold_res"
             android:gravity="center"
             android:text="Perfect Pair"
             android:textColor="?attr/colorPrimary"
-            android:textSize="34sp"
-            android:textStyle="bold"
+            android:textSize="38sp"
             app:layout_constraintBottom_toTopOf="@id/et_signin_id"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -37,6 +37,7 @@
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:hint="ID"
+            app:hintTextAppearance="@style/HintText"
             app:layout_constraintBottom_toTopOf="@id/et_signup_pass"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -46,6 +47,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/font_jamsil_3_regular_res"
                 android:imeOptions="actionNext"
                 android:inputType="text"
                 android:maxLines="1"
@@ -58,6 +60,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:hint="PASS"
+            app:hintTextAppearance="@style/HintText"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -67,6 +70,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/font_jamsil_3_regular_res"
                 android:imeOptions="actionDone"
                 android:inputType="textPassword"
                 android:maxLines="1"
@@ -87,6 +91,7 @@
             android:layout_height="26dp"
             android:layout_marginTop="10dp"
             android:checked="@={viewmodel.autoChecked}"
+            android:fontFamily="@font/font_jamsil_3_regular_res"
             android:text="자동로그인"
             app:layout_constraintStart_toStartOf="@id/et_signup_pass"
             app:layout_constraintTop_toBottomOf="@id/et_signup_pass" />
@@ -96,7 +101,10 @@
             style="@style/Theme.PerfectPair.NormalButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/font_jamsil_5_bold_res"
+            android:padding="18dp"
             android:text="로그인"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -107,13 +115,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#FEFBFE"
-            android:elevation="2dp">
+            android:elevation="2dp"
+            tools:visibility="gone">
 
             <ImageView
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:src="@drawable/icon_main"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center"
+                android:src="@drawable/icon_main" />
         </FrameLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

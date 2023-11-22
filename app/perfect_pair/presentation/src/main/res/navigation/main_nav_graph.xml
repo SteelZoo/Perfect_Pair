@@ -12,7 +12,8 @@
         tools:layout="@layout/fragment_group_list" >
         <action
             android:id="@+id/action_groupListFragment_to_groupFragment"
-            app:destination="@id/groupFragment" />
+            app:destination="@id/groupFragment"
+            app:enterAnim="@anim/anim_grouplist_to_group"/>
         <action
             android:id="@+id/action_groupListFragment_to_joinGroupFragment"
             app:destination="@id/joinGroupFragment" />

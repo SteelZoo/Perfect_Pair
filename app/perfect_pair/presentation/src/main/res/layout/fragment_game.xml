@@ -4,13 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".main.game.GameFragment">
+    tools:context=".main.game.GameFragment"
+    android:paddingTop="8dp">
 
     <TextView
         android:id="@+id/tv_question_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="문제 입니다 재밌게 푸세용"
+        android:fontFamily="@font/font_jamsil_4_midium_res"
         android:textColor="@color/bluelagoo_mid"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"

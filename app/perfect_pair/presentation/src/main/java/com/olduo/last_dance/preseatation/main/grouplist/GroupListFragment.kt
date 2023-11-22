@@ -49,6 +49,7 @@ class GroupListFragment : BaseFragment<FragmentGroupListBinding>(
 
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner,object : OnBackPressedCallback(true){
             override fun handleOnBackPressed() {
+
             }
         })
     }

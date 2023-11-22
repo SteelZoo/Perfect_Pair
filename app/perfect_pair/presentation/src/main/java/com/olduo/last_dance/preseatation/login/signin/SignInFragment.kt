@@ -5,12 +5,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.olduo.last_dance.preseatation.R
 import com.olduo.last_dance.preseatation.databinding.FragmentSignInBinding
 import com.olduo.last_dance.preseatation.login.LoginActivity
+import com.olduo.last_dance.preseatation.main.MainViewModel
 import com.ssafy.template.board.config.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
@@ -25,6 +27,7 @@ class SignInFragment : BaseFragment<FragmentSignInBinding>(FragmentSignInBinding
 
     private val splashCoroutineScope = CoroutineScope(Dispatchers.Default)
     private val signInViewModel: SignInViewModel by viewModels()
+    private val mainViewModel: MainViewModel by activityViewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,7 +42,12 @@ class SignInFragment : BaseFragment<FragmentSignInBinding>(FragmentSignInBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        splashImage()
+        if (!mainViewModel.isStartedApp){
+            splashImage()
+            mainViewModel.isStartedApp = true
+        } else {
+            binding.layoutSplash.visibility = View.GONE
+        }
 
         binding.viewmodel = signInViewModel
         binding.lifecycleOwner = viewLifecycleOwner

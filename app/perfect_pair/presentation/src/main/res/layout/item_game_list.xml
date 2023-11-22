@@ -3,39 +3,48 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:paddingVertical="4dp">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:elevation="5dp">
+        android:elevation="10dp"
+        app:cardUseCompatPadding="true"
+        android:background="@color/bluelagoo_mid">
 
         <LinearLayout
             android:id="@+id/layout_background"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_item_group_list"
+            android:background="@color/bluelagoo_mid"
             android:orientation="vertical"
-            android:padding="10dp">
+            android:paddingTop="8dp">
 
-            <TextView
-                android:id="@+id/tv_game_name"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:textColor="?attr/colorOnPrimary"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                tools:text="밸런스게임1 입니다." />
+                android:orientation="vertical"
+                android:paddingStart="10dp"
+                android:paddingVertical="14dp"
+                android:background="@color/white">
+                <TextView
+                    android:id="@+id/tv_game_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/font_jamsil_3_regular_res"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    tools:text="밸런스게임1 입니다."
+                    android:paddingBottom="4dp"/>
 
-            <TextView
-                android:id="@+id/tv_game_firstQustion"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:textColor="?attr/colorOnPrimary"
-                tools:text="짜장 vs 짬뽕" />
+                <TextView
+                    android:id="@+id/tv_game_firstQustion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/font_jamsil_3_regular_res"
+                    tools:text="짜장 vs 짬뽕" />
+            </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
-
 </LinearLayout>
