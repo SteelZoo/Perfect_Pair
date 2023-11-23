@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -8,31 +9,46 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:elevation="5dp">
+        android:background="@color/bluelagoo_mid"
+        android:elevation="10dp"
+        app:cardUseCompatPadding="true">
+
 
         <LinearLayout
             android:id="@+id/layout_background"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_item_group_list"
+            android:background="@color/bluelagoo_mid"
             android:orientation="vertical"
-            android:padding="10dp">
+            android:paddingStart="8dp">
 
-            <TextView
-                android:id="@+id/tv_name"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="?attr/colorOnPrimary"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                tools:text="구미 6반 마지막 관통" />
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:paddingVertical="14dp"
+                android:paddingStart="10dp">
 
-            <TextView
-                android:id="@+id/tv_description"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="?attr/colorOnPrimary"
-                tools:text="팀 정하자" />
+                <TextView
+                    android:id="@+id/tv_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:fontFamily="@font/font_jamsil_3_regular_res"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    tools:text="구미 6반 마지막 관통" />
+
+                <TextView
+                    android:id="@+id/tv_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/font_jamsil_3_regular_res"
+                    tools:text="팀 정하자" />
+            </LinearLayout>
+
+
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 

@@ -1,6 +1,12 @@
 package com.olduo.last_dance.modules
 
+import com.olduo.last_dance.data.repositoryImpl.AnswerRepositoryImpl
+import com.olduo.last_dance.data.repositoryImpl.GroupRepositoryImpl
+import com.olduo.last_dance.data.repositoryImpl.QuizRespositoryImpl
 import com.olduo.last_dance.data.repositoryImpl.UserRepositoryImpl
+import com.olduo.last_dance.domain.repository.AnswerRepository
+import com.olduo.last_dance.domain.repository.GroupRepository
+import com.olduo.last_dance.domain.repository.QuizRepository
 import com.olduo.last_dance.domain.repository.UserRepository
 import dagger.Binds
 import dagger.Module
@@ -16,4 +22,15 @@ abstract class RepositoryModule {
     @Singleton
     abstract fun bindUserRepo(userRepositoryImpl: UserRepositoryImpl): UserRepository
 
+    @Binds
+    @Singleton
+    abstract fun bindGroupRepo(groupRepositoryImpl: GroupRepositoryImpl): GroupRepository
+
+    @Binds
+    @Singleton
+    abstract fun bindQuizRepo(quizRespositoryImpl: QuizRespositoryImpl): QuizRepository
+
+    @Binds
+    @Singleton
+    abstract fun bindAnswerRepo(answerRepositoryImpl: AnswerRepositoryImpl): AnswerRepository
 }

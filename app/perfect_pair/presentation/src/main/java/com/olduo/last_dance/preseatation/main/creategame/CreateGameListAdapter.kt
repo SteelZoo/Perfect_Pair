@@ -1,5 +1,6 @@
 package com.olduo.last_dance.preseatation.main.creategame
 
+import android.content.DialogInterface.OnClickListener
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -8,7 +9,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.olduo.last_dance.preseatation.databinding.ItemCreateQuestionListBinding
 import com.olduo.last_dance.preseatation.model.Question
 
-class CreateGameListAdapter: ListAdapter<Question,CreateGameListAdapter.CreateGameListViewHolder>(diffUtil){
+class CreateGameListAdapter(
+    val deleteClickListener: (Question) -> Unit
+): ListAdapter<Question,CreateGameListAdapter.CreateGameListViewHolder>(diffUtil){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CreateGameListViewHolder {
         return CreateGameListViewHolder(ItemCreateQuestionListBinding.inflate(LayoutInflater.from(parent.context),parent,false))
@@ -23,10 +26,7 @@ class CreateGameListAdapter: ListAdapter<Question,CreateGameListAdapter.CreateGa
             binding.tvFirstQuestion.text = question.first
             binding.tvSecondQuestion.text = question.second
             binding.ibDelete.setOnClickListener {
-                val list = currentList.toMutableList().apply {
-                    remove(question)
-                }
-                submitList(list)
+                deleteClickListener(question)
             }
         }
     }

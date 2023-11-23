@@ -7,38 +7,66 @@
     android:background="@color/white"
     tools:context=".main.grouplist.GroupListFragment">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout_groupList"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/tb_groupList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="?attr/actionBarSize"
+            app:menu="@menu/menu_toolbar_signin"
+            app:title="내 그룹"
+            app:titleCentered="true"
+            app:titleTextAppearance="@style/ToolBarText" />
+    </com.google.android.material.appbar.AppBarLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_group_list"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginHorizontal="10dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toTopOf="@id/btn_joinGroup"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/appBarLayout_groupList"
         tools:listitem="@layout/item_group_list" />
 
-    <Button
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/btn_joinGroup"
-        style="@style/Theme.PerfectPair.NormalButton"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:text="참여"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:backgroundTint="@color/bluelagoo_mid"
+        android:fontFamily="@font/font_jamsil_3_regular_res"
+        android:text="참여하기"
+        android:textColor="@color/white"
+        app:icon="@drawable/baseline_meeting_room_24"
+        app:iconPadding="0dp"
+        app:iconTint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintDimensionRatio="2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/btn_createGroup" />
 
-    <Button
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/btn_createGroup"
-        style="@style/Theme.PerfectPair.NormalButton"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:text="생성"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:backgroundTint="@color/bluelagoo_mid"
+        android:fontFamily="@font/font_jamsil_3_regular_res"
+        android:text="방 만들기"
+        android:textColor="@color/white"
+        app:icon="@drawable/baseline_add_home_24"
+        app:iconPadding="0dp"
+        app:iconTint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintDimensionRatio="2"
         app:layout_constraintEnd_toStartOf="@id/btn_joinGroup"
         app:layout_constraintStart_toStartOf="parent" />
 

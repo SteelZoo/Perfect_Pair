@@ -1,5 +1,6 @@
 package com.olduo.last_dance.data.repositoryImpl
 
+import android.util.Log
 import com.olduo.last_dance.data.datasource.remote.UserRemoteDatasource
 import com.olduo.last_dance.data.mapper.toDomain
 import com.olduo.last_dance.data.model.UserDto
@@ -23,6 +24,7 @@ class UserRepositoryImpl @Inject constructor(
     }
 
     override suspend fun autoLogin(id: String): UserDomain? {
+        Log.d("TAG", "autoLoginREPO: $id")
         return userRemoteDatasource.autoSignIn(id)?.toDomain()
     }
 }

@@ -1,5 +1,6 @@
 package com.olduo.last_dance.data.datasource.remote.service
 
+import com.olduo.last_dance.data.model.AutoLoginDto
 import com.olduo.last_dance.data.model.UserDto
 import retrofit2.Response
 import retrofit2.http.Body
@@ -20,7 +21,7 @@ interface UserService {
      * 실패하면 dto의 변수가 null
      */
     @GET("user/info")
-    suspend fun autoSignIn(@Query("userId") userId: String): Response<UserDto>
+    suspend fun autoSignIn(@Query("userId") userId: String): Response<AutoLoginDto>
 
     /**
      * 실패하면 반환 json이 없음

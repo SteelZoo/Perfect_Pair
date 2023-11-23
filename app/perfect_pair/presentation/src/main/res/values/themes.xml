@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
     <style name="Base.Theme.PerfectPair" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
@@ -14,12 +14,21 @@
 
     <style name="Theme.PerfectPair.RankText" parent="Theme.PerfectPair">
         <item name="android:textSize">24dp</item>
-        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/font_jamsil_4_midium_res</item>
     </style>
 
     <style name="Theme.PerfectPair.QuestionEditText" parent="Theme.PerfectPair">
         <item name="android:inputType">text</item>
         <item name="android:maxLength">20</item>
         <item name="android:maxLines">1</item>
+    </style>
+
+    <style name="HintText" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/font_jamsil_3_regular_res</item>
+    </style>
+
+    <style name="ToolBarText" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/font_jamsil_3_regular_res</item>
+        <item name="android:textSize">24sp</item>
     </style>
 </resources>

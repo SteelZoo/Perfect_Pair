@@ -2,8 +2,6 @@ package com.olduo.last_dance.preseatation.login.signup
 
 import android.content.res.ColorStateList
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,7 +13,6 @@ import com.olduo.last_dance.preseatation.R
 import com.olduo.last_dance.preseatation.databinding.FragmentSignUpBinding
 import com.ssafy.template.board.config.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
-import kotlin.math.sign
 
 @AndroidEntryPoint
 class SignUpFragment : BaseFragment<FragmentSignUpBinding>(FragmentSignUpBinding::bind,R.layout.fragment_sign_up) {
@@ -114,6 +111,8 @@ class SignUpFragment : BaseFragment<FragmentSignUpBinding>(FragmentSignUpBinding
                 showDefaultSnackbar("비밀번호가 최소 글자수보다 작습니다")
             } else if (id != checkId) {
                 showDefaultSnackbar("아이디 중복체크를 해야합니다")
+            } else if (id.contains(" ") || pass.contains(" ") || name.contains(" ")) {
+                showDefaultSnackbar("각 항목은 공백이 없어야합니다.")
             } else {
                 return true
             }

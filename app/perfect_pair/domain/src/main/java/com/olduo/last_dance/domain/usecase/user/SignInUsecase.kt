@@ -10,4 +10,9 @@ class SignInUsecase @Inject constructor(
     suspend operator fun invoke(id: String, pass: String): UserDomain?{
         return userRepository.signIn(id, pass)
     }
+
+    suspend fun autoLotin(id: String): UserDomain?{
+        println("Domain $id")
+        return userRepository.autoLogin(id)
+    }
 }

@@ -6,40 +6,68 @@
     android:layout_height="match_parent"
     tools:context=".main.group.GroupFragment">
 
-    <TextView
-        android:id="@+id/tv_gameList"
-        android:layout_width="wrap_content"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout_gameList"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="게임 목록"
-        android:textColor="?attr/colorPrimary"
-        android:textSize="34sp"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/tb_groupList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="?attr/actionBarSize"
+            app:title="게임 목록"
+            app:titleCentered="true"
+            app:titleTextAppearance="@style/ToolBarText" />
+    </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_gameList"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginBottom="10dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/fab_invite"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_gameList"
+        app:layout_constraintTop_toBottomOf="@id/appBarLayout_gameList"
         tools:itemCount="4"
         tools:listitem="@layout/item_group_list" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/fab_makeGame"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:backgroundTint="@color/bluelagoo_light"
+        android:backgroundTint="@color/bluelagoo_mid"
+        android:fontFamily="@font/font_jamsil_3_regular_res"
+        android:text="문제만들기"
+        android:textColor="@color/white"
+        app:icon="@drawable/baseline_add_24"
+        app:iconPadding="0dp"
+        app:iconTint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/baseline_add_24"
-        app:tint="@color/white" />
+        app:layout_constraintStart_toEndOf="@id/fab_invite" />
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/fab_invite"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:backgroundTint="@color/bluelagoo_mid"
+        android:fontFamily="@font/font_jamsil_3_regular_res"
+        android:text="초대하기"
+        android:textColor="@color/white"
+        app:icon="@drawable/baseline_emoji_people_24"
+        app:iconPadding="0dp"
+        app:iconTint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/fab_makeGame"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

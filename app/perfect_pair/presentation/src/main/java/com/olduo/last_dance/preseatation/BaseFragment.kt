@@ -8,7 +8,6 @@ import android.widget.Toast
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
-import com.google.android.material.snackbar.Snackbar
 import com.olduo.last_dance.preseatation.LoadingDialog
 
 // Fragment의 기본을 작성, 뷰 바인딩 활용

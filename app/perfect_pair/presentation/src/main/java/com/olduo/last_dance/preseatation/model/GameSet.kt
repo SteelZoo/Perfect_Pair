@@ -1,8 +1,9 @@
 package com.olduo.last_dance.preseatation.model
 
 data class GameSet(
-    val id: String,
-    val gId: String,
+    val id: Int,
+    val gId: Int,
+    val title: String,
     val questionList: List<Question>
 )
 
