@@ -4,6 +4,9 @@ plugins {
     id 'kotlin-kapt'
 }
 
+def Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
 android {
     namespace 'com.olduo.last_dance.data'
     compileSdk 33
@@ -14,6 +17,8 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
+
+        buildConfigField("String", "API_URL", properties.getProperty("api_url"))
     }
 
     buildTypes {
