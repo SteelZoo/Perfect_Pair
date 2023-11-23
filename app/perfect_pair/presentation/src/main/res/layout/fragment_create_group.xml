@@ -40,6 +40,7 @@
             app:counterMaxLength="15"
             app:helperText="최소 2자 ~ 최대 15자"
             app:helperTextTextAppearance="@style/HintText"
+            app:helperTextTextColor="@color/light_gray"
             app:hintTextAppearance="@style/HintText"
             app:layout_constraintBottom_toTopOf="@id/et_groupDes"
             app:layout_constraintEnd_toEndOf="parent"
@@ -50,6 +51,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
                 android:fontFamily="@font/font_jamsil_3_regular_res"
                 android:imeOptions="actionNext"
                 android:inputType="text"
@@ -67,6 +69,7 @@
             app:counterMaxLength="30"
             app:helperText="최대 30자"
             app:helperTextTextAppearance="@style/HintText"
+            app:helperTextTextColor="@color/light_gray"
             app:hintTextAppearance="@style/HintText"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -76,6 +79,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
                 android:fontFamily="@font/font_jamsil_3_regular_res"
                 android:imeOptions="actionDone"
                 android:inputType="text"

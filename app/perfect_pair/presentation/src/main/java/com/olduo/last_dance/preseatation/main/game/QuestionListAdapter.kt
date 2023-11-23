@@ -61,6 +61,9 @@ class QuestionListAdapter(
                     } else if (selectedValue == 2){
                         binding.btnFirstQuestion.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(it, R.color.bluelagoo_light))
                         binding.btnSecondQuestion.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(it, R.color.bluelagoo_deep))
+                    } else {
+                        binding.btnFirstQuestion.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(it, R.color.bluelagoo_light))
+                        binding.btnSecondQuestion.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(it, R.color.bluelagoo_light))
                     }
                 }
             }
@@ -85,6 +88,9 @@ class QuestionListAdapter(
                     } else if (selectedValue == 2){
                         binding.btnFirstQuestion.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(it, R.color.bluelagoo_light))
                         binding.btnSecondQuestion.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(it, R.color.bluelagoo_deep))
+                    } else {
+                        binding.btnFirstQuestion.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(it, R.color.bluelagoo_light))
+                        binding.btnSecondQuestion.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(it, R.color.bluelagoo_light))
                     }
                 }
             }
