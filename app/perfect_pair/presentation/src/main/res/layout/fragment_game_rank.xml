@@ -34,25 +34,31 @@
         android:id="@+id/switch_myRank"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="RankWithMe"
-        app:switchPadding="0dp"
+        android:text="My Rank "
         app:layout_constraintBottom_toBottomOf="@id/tv_rank"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/tv_rank"
-        app:thumbTint="@color/white"
+        app:switchPadding="0dp"
         app:trackDecorationTint="@color/white"
         app:trackTint="@color/bluelagoo_light" />
+
+    <com.google.android.material.divider.MaterialDivider
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tv_rank" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_rankList"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="8dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toTopOf="@id/btn_joinQuestion"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_rank"
+        app:layout_constraintTop_toBottomOf="@id/divider"
         tools:listitem="@layout/item_rank_list" />
 
     <Button

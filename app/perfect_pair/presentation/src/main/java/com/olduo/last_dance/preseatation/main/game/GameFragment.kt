@@ -43,6 +43,7 @@ class GameFragment :
 
         questionListAdapter = QuestionListAdapter(mainViewModel.selectedGame) {
             binding.vpQuestions.currentItem = binding.vpQuestions.currentItem + 1
+            setSolvedCount()
         }
         binding.vpQuestions.adapter = questionListAdapter
 
@@ -56,6 +57,9 @@ class GameFragment :
     }
 
     private fun setUi() {
+        binding.tvQuestionTitle.text = mainViewModel.selectedGame.title
+        setSolvedCount()
+
         /**
         val currentVisibleItemPx = 120
         binding.vpQuestions.addItemDecoration(object: RecyclerView.ItemDecoration() {
@@ -136,6 +140,7 @@ class GameFragment :
                     .setPositiveButton("확인"){dialog,_ ->
                         questionListAdapter.setSelectedList(it.answerList)
                         isdialogIgnore = false
+                        setSolvedCount()
                     }
                     .setNegativeButton("취소"){dialog,_ ->
                         isdialogIgnore = false
@@ -149,6 +154,10 @@ class GameFragment :
                     .show()
             }
         }
+    }
+
+    private fun setSolvedCount(){
+        binding.tvQuestionCount.text ="${questionListAdapter.getSelectedList().count { it != -1 }} / ${questionListAdapter.getSelectedList().size}"
     }
 
     private fun showDefaultSnackbar(msg: String) {

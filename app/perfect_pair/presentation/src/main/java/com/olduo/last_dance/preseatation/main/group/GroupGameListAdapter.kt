@@ -42,15 +42,6 @@ class GroupGameListAdapter(
                 val index = position%colorlist.size
                 binding.layoutBackground.backgroundTintList = ColorStateList.valueOf(Color.parseColor(colorlist[index]))
 
-
-//                when(position%3){
-//                    0->{binding.layoutBackground.backgroundTintList = ColorStateList.valueOf(
-//                        ContextCompat.getColor(context, R.color.bluelagoo_deep))}
-//                    1->{binding.layoutBackground.backgroundTintList = ColorStateList.valueOf(
-//                        ContextCompat.getColor(context, R.color.bluelagoo_mid))}
-//                    2->{binding.layoutBackground.backgroundTintList = ColorStateList.valueOf(
-//                        ContextCompat.getColor(context, R.color.bluelagoo_light))}
-//                }
             }
         }
     }
