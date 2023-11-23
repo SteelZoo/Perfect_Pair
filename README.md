@@ -38,8 +38,8 @@
     <td style="text-align: center;">INF(T)J</td>
   </tr>
   <tr>
-    <td style="text-align: center;">앱(안드로이드)</td>
-    <td style="text-align: center;">백앤드(스프링)</td>
+    <td style="text-align: center;">App(Android)</td>
+    <td style="text-align: center;">Back-End(Spring)</td>
   </tr>
 </table>
 </class>
