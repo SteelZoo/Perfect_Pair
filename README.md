@@ -78,7 +78,7 @@
 
 ### 스프링
 
-![](https://blog.kakaocdn.net/dn/dFIPrs/btsAOQgWkZY/XNdfqxWE8PqRdkQtzKbN60/img.png)
+![](https://blog.kakaocdn.net/dn/bWT62b/btsAQfNItkt/6YHcdkCoIvwFR33EqqRcDK/img.png)
 
 #### 기술
 - Spring : <span style="color:green"> Spring Boot, My Batis </span>
