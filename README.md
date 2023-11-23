@@ -22,15 +22,27 @@
 
 
 ## 팀원소개
-<div align="center">
 
-|                                                  🍺 정철주                                                   |                                                   🍫 한채연                                                    |
-| :---------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: |
-| <img src="https://blog.kakaocdn.net/dn/uTGbA/btsAM0j2YNE/aFo28owzi5qKhH3NAj7Re1/img.png" width="200"></img> | <img src="https://blog.kakaocdn.net/dn/6K4c4/btsAOVh5PnC/vI9vjDAd555KxEIqNjIVP1/img.png" width="200px"></img> |
-|                                                    INTP                                                     |                                                    INF(T)J                                                    |
-|                                               앱(안드로이드)                                                |                                                백앤드(스프링)                                                 |
-
-</div>
+<class align="center">  
+<table>
+  <tr>
+    <td style="text-align: center;"><img src="https://blog.kakaocdn.net/dn/uTGbA/btsAM0j2YNE/aFo28owzi5qKhH3NAj7Re1/img.png" width="200" alt="정철주"></td>
+    <td style="text-align: center;"><img src="https://blog.kakaocdn.net/dn/6K4c4/btsAOVh5PnC/vI9vjDAd555KxEIqNjIVP1/img.png" width="200" alt="한채연"></td>
+  </tr>
+  <tr>
+    <td style="text-align: center;">🍺 정철주</td>
+    <td style="text-align: center;">🍫 한채연</td>
+  </tr>
+  <tr>
+    <td style="text-align: center;">INTP</td>
+    <td style="text-align: center;">INF(T)J</td>
+  </tr>
+  <tr>
+    <td style="text-align: center;">앱(안드로이드)</td>
+    <td style="text-align: center;">백앤드(스프링)</td>
+  </tr>
+</table>
+</class>
 
 
 ## 기능, 동작 화면
