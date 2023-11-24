@@ -30,6 +30,7 @@ create table t_group_user(
 create table t_quiz(
     id integer auto_increment primary key,
     gId integer not null,
+    title varchar(100) not null,
     question varchar(1000) not null,
     constraint foreign key(gId) references t_group(id) on update cascade on delete cascade
 );
@@ -55,12 +56,13 @@ INSERT INTO t_user (userId, name, pass) VALUES ('id 09', 'name 09', 'pass 09');
 INSERT INTO t_user (userId, name, pass) VALUES ('id 10', 'name 10', 'pass 10');
 
 INSERT INTO t_group (creator, title, description, code) VALUES ('id 01', '그룹1', '그룹1입니다.', 'G1');
-INSERT INTO t_group (creator, title, description, code) VALUES ('id 01', '그룹2', '그룹2입니다.', 'G2');
-INSERT INTO t_group (creator, title, description, code) VALUES ('id 02', '그룹3', '그룹3입니다.', 'G3');
-INSERT INTO t_group (creator, title, description, code) VALUES ('id 03', '그룹4', '그룹4입니다.', 'G4');
+INSERT INTO t_group (creator, title, description, code) VALUES ('id 02', '그룹2', '그룹2입니다.', 'G2');
+INSERT INTO t_group (creator, title, description, code) VALUES ('id 03', '그룹3', '그룹3입니다.', 'G3');
+INSERT INTO t_group (creator, title, description, code) VALUES ('id 04', '그룹4', '그룹4입니다.', 'G4');
+INSERT INTO t_group (creator, title, description, code) VALUES ('id 05', '그룹5', '그룹5입니다.', 'G5');
 
-INSERT INTO t_answer(qId, userId, answer) values ('2', 'id 01', 'test1111111111111111');
-INSERT INTO t_answer(qId, userId, answer) values ('1', 'id 02', 'test2222222222222222');
+INSERT INTO t_group_user (uId, gId) VALUES ('id 01', 1);
+INSERT INTO t_group_user (uId, gId) VALUES ('id 02', 1);
 
 select * from t_user;
 select * from t_group;
@@ -73,5 +75,8 @@ select * from t_answer;
 #drop table t_group_user;
 #drop table t_quiz;
 #drop table t_answer;
+
+delete from t_user where userId = 'steelzoo';
+delete from t_user where userId = '지수초이이';
 
 commit; 
