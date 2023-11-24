@@ -35,18 +35,24 @@ public class GroupServiceImpl implements GroupService {
 
 	@Transactional
 	@Override
-	public void addGroup(Group group, String userId) throws NoSuchAlgorithmException {
-		SHA256 sha256 = new SHA256();
+	public Boolean addGroup(Group group, String userId) throws NoSuchAlgorithmException {
+		if (gDao.getGroupByUser(userId).size() < 10) {
+			SHA256 sha256 = new SHA256();
 
-		String newCode = sha256.encrypt(group.getTitle() + group.getCreator() + System.currentTimeMillis());
+			String newCode = sha256.encrypt(group.getTitle() + group.getCreator() + System.currentTimeMillis());
 
-		group.setCode(newCode);
+			group.setCode(newCode);
 
-		gDao.insert(group);
+			gDao.insert(group);
 
-		GroupUser groupUser = new GroupUser(userId, group.getId());
+			GroupUser groupUser = new GroupUser(userId, group.getId());
 
-		guDao.insert(groupUser);
+			guDao.insert(groupUser);
+			
+			return true;
+		}
+		
+		return false;
 	}
 
 	@Override

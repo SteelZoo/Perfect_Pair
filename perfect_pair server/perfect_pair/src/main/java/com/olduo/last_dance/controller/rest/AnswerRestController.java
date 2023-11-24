@@ -34,8 +34,7 @@ public class AnswerRestController {
 	@Transactional
 	@ApiOperation(value = "user의 answer를 추가한다. 성공하면 true를 리턴한다.", response = Boolean.class)
 	public Boolean insert(@RequestBody Answer answer) {
-		aService.addAnswer(answer);
-		return true;
+		return aService.addAnswer(answer);
 	}
 	
 	@PutMapping

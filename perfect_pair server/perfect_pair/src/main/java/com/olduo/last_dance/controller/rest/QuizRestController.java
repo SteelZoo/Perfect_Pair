@@ -31,16 +31,14 @@ public class QuizRestController {
     @Transactional
     @ApiOperation(value="Quiz를 추가한다. 성공하면 true를 리턴한다.", response = Boolean.class)
     public Boolean insert(@RequestBody Quiz quiz) {
-        qService.addQuiz(quiz);
-        return true;
+		return qService.addQuiz(quiz);
     }
 	
 	@DeleteMapping("/{id}")
     @Transactional
     @ApiOperation(value="{id}에 해당하는 quiz를 삭제한다. 성공하면 true를 리턴한다.", response = Boolean.class)
     public Boolean delete(@PathVariable Integer id) {
-        qService.removeQuiz(id);
-        return true;
+		return qService.removeQuiz(id);
 	}
 	
 	@GetMapping("/{gId}")
